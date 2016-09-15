@@ -1,0 +1,22 @@
+{
+  "name": "ravichandran-abhishek-webdev",
+  "version": "1.0.0",
+  "description": "cs5610 assignments",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/abhishekravi/ravichandran-abhishek-webdev.git"
+  },
+  "author": "Abhishek Ravichandran",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/abhishekravi/ravichandran-abhishek-webdev/issues"
+  },
+  "homepage": "https://github.com/abhishekravi/ravichandran-abhishek-webdev#readme",
+  "dependencies": {
+    "express": "^4.14.0"
+  }
+}

@@ -4,7 +4,7 @@ module.exports = function(app)
     app.post("/api/test", createMessage);
     app.delete("/api/test/:id", deleteMessage);
 
-    var connectionString = 'mongodb://<uname>:<pass>@ds033036.mlab.com:33036/heroku_n8lqdsvf';
+    var connectionString = 'mongodb://webdev:webdev@ds033036.mlab.com:33036/heroku_n8lqdsvf';
     //var connectionString = 'mongodb://127.0.0.1:27017/test';
 
     var mongoose = require("mongoose");

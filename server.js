@@ -10,4 +10,4 @@ app.use(express.static(__dirname + '/public'));
 
 require ("./test/app.js")(app);
 
-app.listen(process.env.PORT || 5000);
+app.listen(process.env.PORT || 3000);

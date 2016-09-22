@@ -1,36 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
         <title>New Website</title>
         <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
         <link href="css/style.css" rel="stylesheet"/>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+        <script src="js/app.js"></script>
     </head>
     <body class="nav-padding">
         <nav class="navbar navbar-fixed-top bg-primary">
             <div class="container-fluid">
-                <div class="navbar-header">
-                    <!-- back navigation-->
-                    <a class="navbar-brand bg-primary" href="website-list.html">
-                        <span class="glyphicon glyphicon-menu-left" aria-hidden="true"></span>
-                    </a>
+                <a class="navbar-brand bg-primary" href="website-list.html">
+                    <span class="glyphicon glyphicon-menu-left" aria-hidden="true"></span>
+                </a>
+                <div class="navbar-header-fixed">
                     <a class="navbar-brand bg-primary" href="#">New Website </a>
                 </div>
-                <div class="navbar-link">
-                    <p class="navbar-text pull-right text-primary">
-                        <a href="#" class="bg-primary pull-right">
+                <p class="navbar-text pull-right text-primary">
+                    <a href="website-list.html" class="bg-primary pull-right">
                             <span class="glyphicon glyphicon-ok">
                             </span>
-                        </a>
-                    </p>
-                </div>
+                    </a>
+                </p>
             </div>
         </nav>
-        <div class="container-fluid form-group">
-            Name
-            <input placeholder="Name" class="form-control">
-            Description
-            <textarea placeholder="Description" rows="5" class="form-control"></textarea>
+
+        <div class="container">
+            <div id="leftpane" class="col-sm-4">
+
+            </div>
+            <div id="rightpane" class="col-sm-8" class="container-fluid form-group">
+                Name
+                <input placeholder="Name" class="form-control">
+                Description
+                <textarea placeholder="Description" rows="5" class="form-control"></textarea>
+            </div>
         </div>
         <nav class="navbar navbar-fixed-bottom bg-primary nav-height">
             <div class="container-fluid">

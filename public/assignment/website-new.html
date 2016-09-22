@@ -2,9 +2,41 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8">
-        <title>Title</title>
+        <title>New Website</title>
+        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
+        <link href="css/style.css" rel="stylesheet"/>
     </head>
-    <body>
-        
+    <body class="nav-padding">
+        <nav class="navbar navbar-fixed-top bg-primary">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <!-- back navigation-->
+                    <a class="navbar-brand bg-primary" href="website-list.html">
+                        <span class="glyphicon glyphicon-menu-left" aria-hidden="true"></span>
+                    </a>
+                    <a class="navbar-brand bg-primary" href="#">New Website </a>
+                </div>
+                <div class="navbar-link">
+                    <p class="navbar-text pull-right text-primary">
+                        <a href="#" class="bg-primary pull-right">
+                            <span class="glyphicon glyphicon-ok">
+                            </span>
+                        </a>
+                    </p>
+                </div>
+            </div>
+        </nav>
+        <div class="container-fluid form-group">
+            Name
+            <input placeholder="Name" class="form-control">
+            Description
+            <textarea placeholder="Description" rows="5" class="form-control"></textarea>
+        </div>
+        <nav class="navbar navbar-fixed-bottom bg-primary nav-height">
+            <div class="container-fluid">
+                <a href="profile.html" class="navbar-brand bg-primary pull-right">
+                    <span class="glyphicon glyphicon-user"></span></a>
+            </div>
+        </nav>
     </body>
 </html>

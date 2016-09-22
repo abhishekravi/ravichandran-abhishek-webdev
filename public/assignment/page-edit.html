@@ -2,9 +2,48 @@
 <html lang="en">
     <head>
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-        <title>Title</title>
+        <title>Page Edit</title>
+        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
+        <link href="css/style.css" rel="stylesheet"/>
     </head>
-    <body>
-        
+    <body class="nav-padding">
+        <nav class="navbar navbar-fixed-top navbar-default">
+            <div class="container-fluid">
+                <!-- back navigation-->
+                <a class="navbar-brand" href="page-list.html">
+                    <span class="glyphicon glyphicon-menu-left" aria-hidden="true"></span>
+                </a>
+                <div class="navbar-header-fixed">
+                    <a class="navbar-brand" href="#">Edit Page </a>
+                </div>
+                <a href="page-list.html" class="navbar-text pull-right">
+                            <span class="glyphicon glyphicon-ok">
+                            </span>
+                </a>
+            </div>
+        </nav>
+
+        <div class="container">
+            <form>
+                <div class="form-group">
+                    <label for="pagename">Name</label>
+                    <input type="text" id="pagename" class="form-control"
+                           placeholder="Name" value="Blog post"/>
+                </div>
+                <div class="form-group">
+                    <label for="title">Page Title</label>
+                    <input type="text" id="title" class="form-control"
+                           placeholder="Page Title" value="title goes here"/>
+                </div>
+                <a href="page-list.html" class="btn btn-danger form-control" >Delete</a>
+            </form>
+        </div>
+
+        <nav class="navbar navbar-default navbar-fixed-bottom nav-height">
+            <div class="container-fluid">
+                <a href="profile.html" class="navbar-brand pull-right">
+                    <span class="glyphicon glyphicon-user"></span></a>
+            </div>
+        </nav>
     </body>
 </html>

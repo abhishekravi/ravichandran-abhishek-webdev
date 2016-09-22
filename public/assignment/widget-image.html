@@ -2,9 +2,67 @@
 <html lang="en">
     <head>
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-        <title>Title</title>
+        <title>Widget Edit</title>
+        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
+        <link href="css/style.css" rel="stylesheet"/>
     </head>
-    <body>
-        
+    <body class="nav-padding">
+        <nav class="navbar navbar-fixed-top navbar-default">
+            <div class="container-fluid">
+                <!-- back navigation-->
+                <a class="navbar-brand" href="widget-chooser.html">
+                    <span class="glyphicon glyphicon-menu-left" aria-hidden="true"></span>
+                </a>
+                <div class="navbar-header-fixed">
+                    <a class="navbar-brand" href="#">Widget Edit </a>
+                </div>
+                <a href="widget-list.html" class="navbar-text pull-right">
+                            <span class="glyphicon glyphicon-ok">
+                            </span>
+                </a>
+            </div>
+        </nav>
+
+        <div class="container">
+            <form>
+                <div class="form-group">
+                    <label for="widgetname">Name</label>
+                    <input type="text" id="widgetname" class="form-control"
+                           placeholder="Widget Name" value="Widget name"/>
+                </div>
+                <div class="form-group">
+                    <label for="widgettext">Text</label>
+                    <input type="text" id="widgettext" class="form-control"
+                           placeholder="Widget Header" value="widget header"/>
+                </div>
+                <div class="form-group">
+                    <label for="videourl">URL</label>
+                    <input type="text" id="videourl" class="form-control"
+                           placeholder="Image URL" value="https://youtube/"/>
+                </div>
+
+                <div class="form-group">
+                    <label for="imagewidth">Width</label>
+                    <input type="text" id="imagewidth" class="form-control"
+                           placeholder="Image width" value="100%"/>
+                </div>
+
+                <div class="form-group">
+                    <label for="videourl">Upload</label>
+                    <input type="file">
+                </div>
+
+                <a href="widget-list.html" class="btn btn-primary form-control" >Upload Image</a>
+                <br><br>
+                <a href="widget-list.html" class="btn btn-danger form-control" >Delete</a>
+            </form>
+        </div>
+
+        <nav class="navbar navbar-default navbar-fixed-bottom nav-height">
+            <div class="container-fluid">
+                <a href="profile.html" class="navbar-brand pull-right">
+                    <span class="glyphicon glyphicon-user"></span></a>
+            </div>
+        </nav>
     </body>
 </html>

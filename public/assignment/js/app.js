@@ -1,13 +1,15 @@
 $(document).ready(function() {
-    $("#leftpane").hide();
+    //load the website list page in the left pane
+    $("#newleftpane").load("website-list.html");
+    $("#editleftpane").load("website-list.html");
     $(window).on("orientationchange", function (event) {
+        //to resize the pane when orientataion changes
         if(window.innerHeight < window.innerWidth){
-            //alert("landscape");
-            $("#leftpane").load("website-list.html");
-            $("#leftpane").show();
+            $("#newrightpane").addClass("col-xs-6");
+            $("#editrightpane").addClass("col-xs-6");
         } else{
-            $("#leftpane").empty();
-            $("#leftpane").hide();
+            $("#newrightpane").removeClass("col-xs-6");
+            $("#editrightpane").removeClass("col-xs-6");
         }
     });
 });

@@ -3,7 +3,8 @@ input.form-control {
 }
 
 body {
-    padding-top: 36px;
+    padding-top: 70px;
+    padding-bottom: 100px;
 }
 
 .nav-padding {
@@ -12,4 +13,25 @@ body {
 
 .noborder {
     border: 0 none;
+}
+
+@media  (orientation:landscape) {
+    .splitleft {
+    visibility: visible;
+    }
+}
+
+@media  (orientation:portrait) {
+    .splitleft {
+        visibility: hidden;
+        display: none;
+    }
+}
+
+.widget-icons{
+    position: absolute; top:0px; right:0px
+}
+
+.widget-div{
+    position: relative
 }

@@ -8,14 +8,15 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
         <script src="js/app.js"></script>
     </head>
-    <body style="padding-top: 70px;">
+    <body>
         <nav class="navbar navbar-fixed-top bg-primary">
             <div class="container-fluid">
-                <div class="navbar-header">
-                    <!-- back navigation-->
-                    <a class="navbar-brand bg-primary" href="website-list.html">
-                        <span class="glyphicon glyphicon-menu-left" aria-hidden="true"></span>
-                    </a>
+                <!-- back navigation-->
+                <a class="navbar-brand bg-primary" href="website-list.html">
+                    <span class="glyphicon glyphicon-menu-left" aria-hidden="true"></span>
+                </a>
+                <div class="navbar-header-fixed">
+
                     <a class="navbar-brand bg-primary" href="#">Edit Website </a>
                 </div>
                 <div class="navbar-link">
@@ -29,19 +30,21 @@
             </div>
         </nav>
 
-        <div class="container-fluid form-group">
+        <div id="editleftpane" class="col-xs-6 col-sm-4 col-md-4 splitleft">
+
+        </div>
+        <div id="editrightpane" class=" col-xs-12  col-md-8 splitright container-fluid form-group">
             Name
             <input value="Blogger" class="form-control">
             Website Description
-            <textarea  rows="5" class="form-control">Description
+            <textarea rows="5" class="form-control">Description
             </textarea>
             <br>
-            <button type="button" class="btn btn-danger form-control" >Delete</button>
+            <button type="button" class="btn btn-danger form-control">Delete</button>
         </div>
 
 
-
-        <nav class="navbar navbar-fixed-bottom bg-primary nav-height">
+        <nav class="navbar navbar-fixed-bottom bg-primary nav-height ">
             <div class="container-fluid">
                 <a href="#" class="navbar-brand bg-primary pull-right">
                     <span class="glyphicon glyphicon-user"></span></a>

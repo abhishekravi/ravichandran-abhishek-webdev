@@ -29,9 +29,14 @@ body {
 }
 
 .widget-icons{
-    position: absolute; top:0px; right:0px
+    position: absolute; top:0; right:0
 }
 
 .widget-div{
-    position: relative
+    position: relative;
+    cursor:move;
+}
+
+#draggablePanelList .panel-heading {
+    cursor: move;
 }

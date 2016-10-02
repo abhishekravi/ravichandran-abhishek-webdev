@@ -9,31 +9,32 @@
         <script src="js/app.js"></script>
     </head>
     <body>
-        <nav class="navbar navbar-fixed-top bg-primary">
-            <div class="container-fluid">
-                <!-- back navigation-->
-                <a class="navbar-brand bg-primary" href="website-list.html">
-                    <span class="glyphicon glyphicon-menu-left" aria-hidden="true"></span>
-                </a>
-                <div class="navbar-header-fixed">
-
-                    <a class="navbar-brand bg-primary" href="#">Edit Website </a>
-                </div>
-                <div class="navbar-link">
-                    <p class="navbar-text pull-right text-primary">
-                        <a href="website-list.html" class="bg-primary pull-right">
-                            <span class="glyphicon glyphicon-ok">
-                            </span>
-                        </a>
-                    </p>
-                </div>
-            </div>
-        </nav>
-
-        <div id="editleftpane" class="col-xs-6 col-sm-4 col-md-4 splitleft">
+        <div id="editleftpane" class="col-xs-4 hidden-xs vdivider">
 
         </div>
-        <div id="editrightpane" class=" col-xs-12  col-md-8 splitright container-fluid form-group">
+        <div id="editrightpane" class="col-xs-12 col-sm-8 container-fluid form-group">
+            <nav class="navbar navbar-fixed-top bg-primary">
+                <div class="container-fluid">
+                    <!-- back navigation-->
+                    <a class="navbar-brand bg-primary" href="website-list.html">
+                        <span class="glyphicon glyphicon-menu-left" aria-hidden="true"></span>
+                    </a>
+                    <div class="navbar-header-fixed">
+
+                        <a class="navbar-brand bg-primary" href="#">Edit Website </a>
+                    </div>
+                    <div class="navbar-link">
+                        <p class="navbar-text pull-right text-primary">
+                            <a href="website-list.html" class="bg-primary pull-right">
+                            <span class="glyphicon glyphicon-ok">
+                            </span>
+                            </a>
+                        </p>
+                    </div>
+                </div>
+            </nav>
+
+
             Name
             <input value="Blogger" class="form-control">
             Website Description
@@ -41,14 +42,14 @@
             </textarea>
             <br>
             <button type="button" class="btn btn-danger form-control">Delete</button>
+
+
+            <nav class="navbar navbar-fixed-bottom bg-primary nav-height ">
+                <div class="container-fluid">
+                    <a href="#" class="navbar-brand bg-primary pull-right">
+                        <span class="glyphicon glyphicon-user"></span></a>
+                </div>
+            </nav>
         </div>
-
-
-        <nav class="navbar navbar-fixed-bottom bg-primary nav-height ">
-            <div class="container-fluid">
-                <a href="#" class="navbar-brand bg-primary pull-right">
-                    <span class="glyphicon glyphicon-user"></span></a>
-            </div>
-        </nav>
     </body>
 </html>

@@ -15,6 +15,10 @@ body {
     border: 0 none;
 }
 
+.vdivider{
+    border-right:1px solid #F2F7F9;
+}
+
 @media  (orientation:landscape) {
     .splitleft {
     visibility: visible;

@@ -2,13 +2,13 @@ input.form-control {
     margin-bottom: 5px;
 }
 
-body {
-    padding-top: 70px;
-    padding-bottom: 100px;
-}
-
 .nav-padding {
     padding-top: 70px;
+    padding-bottom: 70px;
+}
+
+.div-padding {
+    padding-bottom: 50px;
 }
 
 .noborder {
@@ -17,19 +17,6 @@ body {
 
 .vdivider{
     border-right:1px solid #F2F7F9;
-}
-
-@media  (orientation:landscape) {
-    .splitleft {
-    visibility: visible;
-    }
-}
-
-@media  (orientation:portrait) {
-    .splitleft {
-        visibility: hidden;
-        display: none;
-    }
 }
 
 .widget-icons{

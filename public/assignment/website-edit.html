@@ -4,15 +4,14 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
         <title>Website Edit</title>
         <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
-        <link href="css/style.css" rel="stylesheet"/>
+        <link href="css/styles.css" rel="stylesheet"/>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
         <script src="js/app.js"></script>
     </head>
-    <body>
+    <body class="nav-padding" style="padding-bottom: 100px">
         <div id="editleftpane" class="col-xs-4 hidden-xs vdivider">
-
         </div>
-        <div id="editrightpane" class="col-xs-12 col-sm-8 container-fluid form-group">
+        <div id="editrightpane" class="col-xs-12 col-sm-8 container-fluid form-group div-padding" >
             <nav class="navbar navbar-fixed-top bg-primary">
                 <div class="container-fluid">
                     <!-- back navigation-->
@@ -34,17 +33,17 @@
                 </div>
             </nav>
 
-
-            Name
-            <input value="Blogger" class="form-control">
-            Website Description
-            <textarea rows="5" class="form-control">Description
+            <div class="container">
+                <label for="website-name">Name</label>
+                <input id ="website-name" value="Blogger" class="form-control">
+                <label for="website-desc">Website Description</label>
+                <textarea id="website-desc" rows="5" class="form-control">Description
             </textarea>
-            <br>
-            <button type="button" class="btn btn-danger form-control">Delete</button>
+                <br>
+                <a href="website-list.html" class="btn btn-danger form-control">Delete</a>
 
-
-            <nav class="navbar navbar-fixed-bottom bg-primary nav-height ">
+            </div>
+            <nav class="navbar bg-primary navbar-fixed-bottom nav-height ">
                 <div class="container-fluid">
                     <a href="#" class="navbar-brand bg-primary pull-right">
                         <span class="glyphicon glyphicon-user"></span></a>

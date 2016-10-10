@@ -4,19 +4,19 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
         <title>Widget Edit</title>
         <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
-        <link href="css/styles.css" rel="stylesheet"/>
+        <link href="../css/styles.css" rel="stylesheet"/>
     </head>
     <body class="nav-padding">
         <nav class="navbar navbar-fixed-top navbar-default">
             <div class="container-fluid">
                 <!-- back navigation-->
-                <a class="navbar-brand" href="widget-list.html">
+                <a class="navbar-brand" href="widget-list.view.client.html">
                     <span class="glyphicon glyphicon-menu-left" aria-hidden="true"></span>
                 </a>
                 <div class="navbar-header-fixed">
                     <a class="navbar-brand" href="#">Widget Edit </a>
                 </div>
-                <a href="widget-list.html" class="navbar-text pull-right">
+                <a href="widget-list.view.client.html" class="navbar-text pull-right">
                             <span class="glyphicon glyphicon-ok">
                             </span>
                 </a>
@@ -35,32 +35,20 @@
                     <input type="text" id="widgettext" class="form-control"
                            placeholder="Widget Header" value="widget header"/>
                 </div>
-                <div class="form-group">
-                    <label for="videourl">URL</label>
-                    <input type="text" id="videourl" class="form-control"
-                           placeholder="Image URL" value="https://youtube/"/>
-                </div>
 
                 <div class="form-group">
-                    <label for="imagewidth">Width</label>
-                    <input type="text" id="imagewidth" class="form-control"
-                           placeholder="Image width" value="100%"/>
+                    <label for="widgettext">Size</label>
+                    <input type="number" id="widgetsize" class="form-control"
+                           placeholder="Widget Size" value="3"/>
                 </div>
 
-                <div class="form-group">
-                    <label for="videourl">Upload</label>
-                    <input type="file">
-                </div>
-
-                <a href="widget-list.html" class="btn btn-primary form-control" >Upload Image</a>
-                <br><br>
-                <a href="widget-list.html" class="btn btn-danger form-control" >Delete</a>
+                <a href="widget-list.view.client.html" class="btn btn-danger form-control" >Delete</a>
             </form>
         </div>
 
         <nav class="navbar navbar-default navbar-fixed-bottom nav-height">
             <div class="container-fluid">
-                <a href="profile.html" class="navbar-brand pull-right">
+                <a href="../user/profile.view.client.html" class="navbar-brand pull-right">
                     <span class="glyphicon glyphicon-user"></span></a>
             </div>
         </nav>

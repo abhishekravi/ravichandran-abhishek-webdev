@@ -27,12 +27,12 @@
             <form>
                 <div class="form-group">
                     <label for="pagename">Name</label>
-                    <input type="text" id="pagename" class="form-control"
+                    <input type="text" id="pagename" class="form-control" ng-model="model.page.name"
                            placeholder="Name" value="Blog post"/>
                 </div>
                 <div class="form-group">
                     <label for="title">Page Title</label>
-                    <input type="text" id="title" class="form-control"
+                    <input type="text" id="title" class="form-control" ng-model="model.page.title"
                            placeholder="Page Title" value="title goes here"/>
                 </div>
                 <a href="page-list.view.client.html" class="btn btn-danger form-control" >Delete</a>

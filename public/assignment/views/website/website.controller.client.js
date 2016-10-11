@@ -17,7 +17,7 @@
     }
 
     function NewWebsiteController($routeParams, WebsiteService) {
-
+        var vm = this;
     }
 
     function EditWebsiteController($routeProvider, WebsiteService) {

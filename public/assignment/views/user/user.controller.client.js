@@ -20,7 +20,7 @@
     }
 
     function RegisterController() {
-
+        var vm = this;
     }
 
     function ProfileController($routeParams, UserService) {

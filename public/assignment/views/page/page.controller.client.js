@@ -12,7 +12,7 @@
     }
 
     function NewPageController($routeParams, PageService) {
-
+        var vm = this;
     }
 
     function EditPageController($routeProvider, PageService) {

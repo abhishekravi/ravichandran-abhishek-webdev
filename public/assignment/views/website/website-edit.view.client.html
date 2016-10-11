@@ -35,9 +35,9 @@
 
             <div class="container">
                 <label for="website-name">Name</label>
-                <input id ="website-name" value="Blogger" class="form-control">
+                <input id ="website-name" value="Blogger" class="form-control" ng-model="model.website.name">
                 <label for="website-desc">Website Description</label>
-                <textarea id="website-desc" rows="5" class="form-control">Description
+                <textarea id="website-desc" rows="5" class="form-control" ng-model="model.website.description">Description
             </textarea>
                 <br>
                 <a href="website-list.view.client.html" class="btn btn-danger form-control">Delete</a>

@@ -12,7 +12,7 @@
     }
 
     function NewWidgetController($routeParams, WidgetService) {
-
+        var vm = this;
     }
 
     function EditWidgetController($routeProvider, WidgetService) {

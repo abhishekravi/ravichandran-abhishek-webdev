@@ -65,7 +65,7 @@
             var i;
             for (i = 0; i < pages.length; i++) {
                 if (pages[i]._id == pageId) {
-                    pages.remove(i);
+                    pages.splice(i,1);
                     break;
                 }
             }

@@ -67,7 +67,7 @@
             var i;
             for (i = 0; i < websites.length; i++) {
                 if (websites[i]._id == websiteId) {
-                    websites.remove(i);
+                    websites.splice(i,1);
                     break;
                 }
             }

@@ -32,7 +32,7 @@
         //method to find widgets by page id
         function findWidgetsByPageId(pageId) {
             var i;
-            var allWidget;
+            var allWidget = [];
             for (i = 0; i < widgets.length; i++) {
                 if (widgets[i].pageId == pageId) {
                     allWidget.push(widgets[i]);
@@ -71,7 +71,7 @@
             var i;
             for (i = 0; i < widgets.length; i++) {
                 if (widgets[i]._id == widgetId) {
-                    widgets.remove(i);
+                    widgets.splice(i,1);
                     break;
                 }
             }

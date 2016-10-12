@@ -20,7 +20,7 @@
     <ul class="list-unstyled" ng-model="model.websites">
         <li ng-repeat ="website in model.websites" class="text-primary list-group-item noborder">
             <a href="#">{{website.name}}</a>
-            <a href="website-edit.view.client.html"><span class="glyphicon glyphicon-cog pull-right"
+            <a href="#/user/{{model.uid}}/website/{{website._id}}"><span class="glyphicon glyphicon-cog pull-right"
                                                           aria-hidden="true"></span></a>
         </li>
     </ul>

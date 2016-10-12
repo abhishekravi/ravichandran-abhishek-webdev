@@ -1,18 +1,18 @@
-<div class="container">
+<div class="container" >
     <h1>Login</h1>
     <form>
         <div class="form-group">
-            <label for="username">Username</label>
-            <input ng-model="model.user.username" type="text" id="username" class="form-control"
+            <label for="uname">Username</label>
+            <input ng-model="model.user.username" type="text" id="uname" class="form-control"
                    placeholder="username"/>
         </div>
         <div class="form-group">
-            <label for="password">Password</label>
-            <input ng-model="model.user.password" type="password" id="password" class="form-control"
+            <label for="pwd">Password</label>
+            <input ng-model="model.user.password" type="password" id="pwd" class="form-control"
                    placeholder="password"/>
         </div>
         <a class="btn btn-primary btn-block"
-           href="#/user/" ng-click="model.login(user)">Login</a>
+           ng-click="model.login(model.user)">Login</a>
         <a class="btn btn-success btn-block"
            href="#/register">Register</a>
     </form>

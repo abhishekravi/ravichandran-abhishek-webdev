@@ -10,17 +10,20 @@
             {_id: "456", username: "jannunzi", password: "jannunzi", firstName: "Jose", lastName: "Annunzi"}
         ];
         var api = {
-            "createUser": "createUser",
-            "findUserById": "findUserById",
-            "findUserByUsername": "findUserByUsername",
-            "findUserByCredentials": "findUserByCredentials",
-            "updateUser": "updateUser",
-            "deleteUser": "deleteUser"
+            "createUser": createUser,
+            "findUserById": findUserById,
+            "findUserByUsername": findUserByUsername,
+            "findUserByCredentials": findUserByCredentials,
+            "updateUser": updateUser,
+            "deleteUser": deleteUser
         };
         return api;
+
         //method to create user
         function createUser(user) {
+            user._id = "567";
             users.push(user);
+            return user;
         }
 
         //method to find user by userid

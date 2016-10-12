@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
+    <head >
         <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
         <title>Assignment Home Page</title>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
         <link rel="stylesheet"
@@ -9,11 +10,22 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular-route.min.js"></script>
+
         <script src="js/config.js"></script>
+        <script src="services/page.service.client.js"></script>
+        <script src="services/user.service.client.js"></script>
+        <script src="services/website.service.client.js"></script>
+        <script src="services/widget.service.client.js"></script>
+        <script src="services/widget.service.client.js"></script>
+        <script src="views/page/page.controller.client.js"></script>
+        <script src="views/user/user.controller.client.js"></script>
+        <script src="views/website/website.controller.client.js"></script>
+        <script src="views/widget/widget.controller.client.js"></script>
+
         <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
         <link href="css/styles.css" rel="stylesheet"/>
     </head>
-    <body>
+    <body class="nav-padding">
         <div ng-app="WebAppMaker">
             <div ng-view></div>
         </div>

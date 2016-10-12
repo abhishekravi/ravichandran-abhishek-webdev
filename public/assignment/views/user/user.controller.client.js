@@ -19,17 +19,22 @@
         }
     }
 
-    function RegisterController() {
+    function RegisterController($location, UserService) {
         var vm = this;
+        vm.register = register;
+
+        function register(user) {
+            user = UserService.createUser(user);
+            $location.url("/user/" + user._id);
+        }
     }
 
     function ProfileController($routeParams, UserService) {
         var vm = this;
-        vm.userId = $routeParams["userId"];
+        vm.userId = $routeParams["uid"];
         function init() {
             vm.user = UserService.findUserById(vm.userId);
         }
-
         init();
     }
 

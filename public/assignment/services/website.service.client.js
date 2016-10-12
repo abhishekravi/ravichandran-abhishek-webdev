@@ -13,11 +13,11 @@
         ];
 
         var api = {
-            "createWebsite": "createWebsite",
-            "findWebsitesByUser": "findWebsitesByUser",
-            "findWebsiteById": "findWebsiteById",
-            "updateWebsite": "updateWebsite",
-            "deleteWebsite": "deleteWebsite",
+            "createWebsite": createWebsite,
+            "findWebsitesByUser": findWebsitesByUser,
+            "findWebsiteById": findWebsiteById,
+            "updateWebsite": updateWebsite,
+            "deleteWebsite": deleteWebsite
         };
         return api;
         //method to create new website
@@ -29,14 +29,13 @@
         //method to find website by userid
         function findWebsitesByUser(userId) {
             var i;
-            var website;
+            var websiteArr = [];
             for (i = 0; i < websites.length; i++) {
                 if (websites[i].developerId == userId) {
-                    website = websites[i];
-                    break;
+                    websiteArr.push(websites[i]);
                 }
             }
-            return website;
+            return websiteArr;
         }
 
         //method to find website by website id

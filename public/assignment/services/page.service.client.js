@@ -10,11 +10,11 @@
         ];
 
         var api = {
-            "createPage": "createPage",
-            "findPageByWebsiteId": "findPageByWebsiteId",
-            "findPageById": "findPageById",
-            "updatePage": "updatePage",
-            "deletePage": "deletePage",
+            "createPage": createPage,
+            "findPageByWebsiteId": findPageByWebsiteId,
+            "findPageById": findPageById,
+            "updatePage": updatePage,
+            "deletePage": deletePage
         };
         return api;
         //method to create new page

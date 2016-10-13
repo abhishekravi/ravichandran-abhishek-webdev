@@ -26,14 +26,13 @@
         //method to find page by website id
         function findPageByWebsiteId(websiteId) {
             var i;
-            var page;
+            var viewPages = [];
             for (i = 0; i < pages.length; i++) {
                 if (pages[i].websiteId == websiteId) {
-                    page = pages[i];
-                    break;
+                    viewPages.push(pages[i]);
                 }
             }
-            return page;
+            return viewPages;
         }
 
         //method to find page by page id

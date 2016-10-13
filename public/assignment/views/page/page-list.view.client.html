@@ -1,61 +1,31 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-        <title>Page List</title>
-        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
-        <link href="../css/styles.css" rel="stylesheet"/>
-    </head>
-    <body class="nav-padding">
-        <nav class="navbar navbar-fixed-top navbar-default">
-            <div class="container-fluid">
-                <!-- back navigation-->
-                <a class="navbar-brand" href="../website/website-list.view.client.html">
-                    <span class="glyphicon glyphicon-menu-left" aria-hidden="true"></span>
-                </a>
-                <div class="navbar-header-fixed">
-                    <a class="navbar-brand" href="#">Pages </a>
-                </div>
-                <a href="page-new.view.client.html" class="navbar-text pull-right">
+<nav class="navbar navbar-fixed-top navbar-default">
+    <div class="container-fluid">
+        <!-- back navigation-->
+        <a class="navbar-brand" href="#/user/{{model.uid}}/website">
+            <span class="glyphicon glyphicon-menu-left" aria-hidden="true"></span>
+        </a>
+        <div class="navbar-header-fixed">
+            <a class="navbar-brand" href="#">Pages </a>
+        </div>
+        <a href="#/user/{{model.uid}}/website/{{model.wid}}/page/new" class="navbar-text pull-right">
                             <span class="glyphicon glyphicon-plus">
                             </span>
-                </a>
-            </div>
-        </nav>
-        <div class="container-fluid">
-            <ul class="list-unstyled">
-                <li class="text-primary list-group-item noborder">
-                    <a href="../widget/widget-list.view.client.html">Blog Post</a>
-                    <a href="page-edit.view.client.html"><span class="glyphicon glyphicon-cog pull-right"
-                                                               aria-hidden="true"></span>
-                    </a></li>
-                <li class="text-primary list-group-item noborder">
-                    <a href="../widget/widget-list.view.client.html">Blogs</a>
-                    <a href="page-edit.view.client.html"><span class="glyphicon glyphicon-cog pull-right"
-                                                               aria-hidden="true"></span>
-                    </a></li>
-                <li class="text-primary list-group-item noborder">
-                    <a href="../widget/widget-list.view.client.html">Home</a>
-                    <a href="page-edit.view.client.html"><span class="glyphicon glyphicon-cog pull-right"
-                                                               aria-hidden="true"></span>
-                    </a></li>
-                <li class="text-primary list-group-item noborder">
-                    <a href="../widget/widget-list.view.client.html">About</a>
-                    <a href="page-edit.view.client.html"><span class="glyphicon glyphicon-cog pull-right"
-                                                               aria-hidden="true"></span>
-                    </a></li>
-                <li class="text-primary list-group-item noborder">
-                    <a href="../widget/widget-list.view.client.html">Contact Us</a>
-                    <a href="page-edit.view.client.html"><span class="glyphicon glyphicon-cog pull-right"
-                                                               aria-hidden="true"></span>
-                    </a></li>
-            </ul>
-        </div>
-        <nav class="navbar navbar-default navbar-fixed-bottom nav-height">
-            <div class="container-fluid">
-                <a href="../user/profile.view.client.html" class="navbar-brand pull-right">
-                    <span class="glyphicon glyphicon-user"></span></a>
-            </div>
-        </nav>
-    </body>
-</html>
+        </a>
+    </div>
+</nav>
+<div class="container-fluid">
+    <ul class="list-unstyled" ng-model="model.websites">
+        <li ng-repeat ="page in model.pages" class="text-primary list-group-item noborder">
+            <a href="#/user/{{model.uid}}/website/{{model.wid}}/page">{{page.name}}</a>
+            <a href="#/user/{{model.uid}}/website/{{model.wid}}/page/{{page._id}}">
+                <span class="glyphicon glyphicon-cog pull-right" aria-hidden="true"></span>
+            </a>
+        </li>
+    </ul>
+</div>
+<nav class="navbar navbar-default navbar-fixed-bottom nav-height">
+    <div class="container-fluid">
+        <a href="#/user/{{model.uid}}" class="navbar-brand pull-right">
+            <span class="glyphicon glyphicon-user"></span></a>
+    </div>
+</nav>

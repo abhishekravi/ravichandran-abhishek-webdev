@@ -19,7 +19,7 @@
 <div class="container-fluid">
     <ul class="list-unstyled" ng-model="model.websites">
         <li ng-repeat ="website in model.websites" class="text-primary list-group-item noborder">
-            <a href="#">{{website.name}}</a>
+            <a href="#/user/{{model.uid}}/website/{{website._id}}/page">{{website.name}}</a>
             <a href="#/user/{{model.uid}}/website/{{website._id}}"><span class="glyphicon glyphicon-cog pull-right"
                                                           aria-hidden="true"></span></a>
         </li>

@@ -1,7 +1,16 @@
+/**
+ * website view service.
+ */
 (function () {
     angular
         .module("WebAppMaker")
         .factory("WebsiteService", WebsiteService);
+
+    /**
+     * contains all website view service methods.
+     * @returns {{createWebsite: createWebsite, findWebsitesByUser: findWebsitesByUser, findWebsiteById: findWebsiteById, updateWebsite: updateWebsite, deleteWebsite: deleteWebsite}}
+     * @constructor
+     */
     function WebsiteService() {
         var websites  = [
             { "_id": "123", "name": "Facebook",    "developerId": "456" },
@@ -20,18 +29,35 @@
             "deleteWebsite": deleteWebsite
         };
         return api;
-        //method to create new website
+        /**
+         * method to create new website.
+         * @param userId
+         * user id
+         * @param website
+         * website object
+         */
         function createWebsite(userId, website) {
             website.developerId = userId;
             website._id = getNewId();
             websites.push(website);
         }
 
+        /**
+         * method to get next website id.
+         * @returns {number}
+         * wensite id
+         */
         function getNewId(){
             return parseInt(websites[websites.length - 1]._id) + 1;
         }
 
-        //method to find website by userid
+        /**
+         * method to find websites by userid.
+         * @param userId
+         * user id
+         * @returns {Array}
+         * array of websites
+         */
         function findWebsitesByUser(userId) {
             var i;
             var websiteArr = [];
@@ -43,7 +69,13 @@
             return websiteArr;
         }
 
-        //method to find website by website id
+        /**
+         * method to find website by website id.
+         * @param websiteId
+         * website id
+         * @returns {*}
+         * website object
+         */
         function findWebsiteById(websiteId) {
             var i;
             var website;
@@ -56,7 +88,13 @@
             return website;
         }
 
-        //method to update website
+        /**
+         * method to update website.
+         * @param websiteId
+         * website id
+         * @param website
+         * website object
+         */
         function updateWebsite(websiteId, website) {
             var i;
             for (i = 0; i < websites.length; i++) {
@@ -67,7 +105,11 @@
             }
         }
 
-        //method to delete website
+        /**
+         * method to delete website.
+         * @param websiteId
+         * website id
+         */
         function deleteWebsite(websiteId) {
             var i;
             for (i = 0; i < websites.length; i++) {

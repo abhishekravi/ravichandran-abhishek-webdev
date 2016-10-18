@@ -3,7 +3,7 @@
  */
 (function () {
     angular
-        .module("WebAppMaker")
+        .module("MyApp")
         .factory("UserService", UserService);
 
     /**
@@ -13,10 +13,10 @@
      */
     function UserService() {
         var users = [
-            {_id: "123", username: "alice", password: "alice", firstName: "Alice", lastName: "Wonder"},
-            {_id: "234", username: "bob", password: "bob", firstName: "Bob", lastName: "Marley"},
-            {_id: "345", username: "charly", password: "charly", firstName: "Charly", lastName: "Garcia"},
-            {_id: "456", username: "jannunzi", password: "jannunzi", firstName: "Jose", lastName: "Annunzi"}
+            {_id: "123", username: "arthas", password: "warcraft", firstName: "Arthas", lastName: "Menethil"},
+            {_id: "234", username: "isaac", password: "deadspace", firstName: "Isaac", lastName: "Clarke"},
+            {_id: "345", username: "clark", password: "superman", firstName: "Clark", lastName: "Kent"},
+            {_id: "456", username: "bruce", password: "batman", firstName: "Bruce", lastName: "Wayne"}
         ];
         var api = {
             "createUser": createUser,

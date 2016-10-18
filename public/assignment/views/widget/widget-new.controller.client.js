@@ -1,12 +1,19 @@
+/**
+ * new widget controller.
+ */
 (function () {
     angular
         .module("WebAppMaker")
         .controller("NewWidgetController", NewWidgetController);
 
     /**
-     *
+     * contains new widget contoller methods.
+     * @param $location
+     * for redirection
      * @param $routeParams
+     * to get route params
      * @param WidgetService
+     * widget service
      * @constructor
      */
     function NewWidgetController($location, $routeParams, WidgetService) {
@@ -17,6 +24,11 @@
         vm.newWidget = newWidget;
         vm.widget = new Object();
 
+        /**
+         * method to create new widget.
+         * @param type
+         * widget type
+         */
         function newWidget(type){
             switch(type){
                 case "html":

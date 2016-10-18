@@ -1,7 +1,16 @@
+/**
+ * widget view service.
+ */
 (function () {
     angular
         .module("WebAppMaker")
         .factory("WidgetService", WidgetService);
+
+    /**
+     * contains all widget view service methods.
+     * @returns {{createWidget: createWidget, findWidgetsByPageId: findWidgetsByPageId, findWidgetById: findWidgetById, updateWidget: updateWidget, deleteWidget: deleteWidget}}
+     * @constructor
+     */
     function WidgetService() {
         var widgets = [
             { "_id": "123", "widgetType": "HEADER", "pageId": "321", "size": 2, "text": "GIZMODO"},
@@ -23,7 +32,16 @@
             "deleteWidget": deleteWidget
         };
         return api;
-        //method to create new widget
+
+        /**
+         * method to create new widget.
+         * @param pageId
+         * page id
+         * @param widget
+         * widget object
+         * @returns {*}
+         * widget object
+         */
         function createWidget(pageId, widget) {
             widget.pageId  = pageId;
             widget._id = getNewId();
@@ -31,11 +49,22 @@
             return widget;
         }
 
+        /**
+         * method to get new widget id.
+         * @returns {number}
+         * widget id
+         */
         function getNewId(){
             return parseInt(widgets[widgets.length - 1]._id) + 1;
         }
 
-        //method to find widgets by page id
+        /**
+         * method to find widgets by page id.
+         * @param pageId
+         * page id
+         * @returns {Array}
+         * array of widgets
+         */
         function findWidgetsByPageId(pageId) {
             var i;
             var allWidget = [];
@@ -47,7 +76,13 @@
             return allWidget;
         }
 
-        //method to find widget by widget id
+        /**
+         * method to find widget by widget id.
+         * @param widgetId
+         * widget id
+         * @returns {*}
+         * widget object
+         */
         function findWidgetById(widgetId) {
             var i;
             var widget;
@@ -60,7 +95,13 @@
             return widget;
         }
 
-        //method to update widget
+        /**
+         * method to update widget.
+         * @param widgetId
+         * widget id
+         * @param widget
+         * widget object
+         */
         function updateWidget(widgetId, widget) {
             var i;
             for (i = 0; i < widgets.length; i++) {
@@ -71,7 +112,11 @@
             }
         }
 
-        //method to delete widget
+        /**
+         * method to delete widget.
+         * @param widgetId
+         * widget id
+         */
         function deleteWidget(widgetId) {
             var i;
             for (i = 0; i < widgets.length; i++) {

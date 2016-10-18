@@ -1,3 +1,6 @@
+/**
+ * widget list controller.
+ */
 (function () {
     angular
         .module("WebAppMaker")
@@ -28,14 +31,32 @@
         }
         init();
 
+        /**
+         * method to check html.
+         * @param text
+         * html
+         * @returns {*}
+         */
         function checkHTML(text) {
             return $sce.trustAsHtml(text);
         }
 
+        /**
+         * method to check image url.
+         * @param text
+         * image url
+         * @returns {*}
+         */
         function checkImage(text) {
             return $sce.trustAsResourceUrl(text);
         }
 
+        /**
+         * method to check youtube url.
+         * @param text
+         * youtube url
+         * @returns {*}
+         */
         function checkYoutube(text) {
             var splitArray = text.split('/');
             var vId = splitArray[splitArray.length - 1];

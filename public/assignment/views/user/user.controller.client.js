@@ -10,11 +10,15 @@
         vm.login = login;
 
         function login(user) {
-            user = UserService.findUserByCredentials(user.username, user.password);
             if (user) {
-                $location.url("/user/" + user._id);
+                user = UserService.findUserByCredentials(user.username, user.password);
+                if (user) {
+                    $location.url("/user/" + user._id);
+                } else {
+                    vm.alert = "Unable to login. Invalid username/password";
+                }
             } else {
-                vm.alert = "Unable to login";
+                vm.alert = "Enter credentials to login";
             }
         }
     }
@@ -35,6 +39,7 @@
         function init() {
             vm.user = UserService.findUserById(vm.userId);
         }
+
         init();
     }
 

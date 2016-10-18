@@ -23,7 +23,12 @@
         //method to create new website
         function createWebsite(userId, website) {
             website.developerId = userId;
+            website._id = getNewId();
             websites.push(website);
+        }
+
+        function getNewId(){
+            return parseInt(websites[websites.length - 1]._id) + 1;
         }
 
         //method to find website by userid

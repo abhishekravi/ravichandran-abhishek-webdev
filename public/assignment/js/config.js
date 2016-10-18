@@ -61,7 +61,7 @@
                 controllerAs: "model"
             })
             .when("/user/:uid/website/:wid/page/:pid/widget/new", {
-                templateUrl: "/assignment/views/widget/widget-new.view.client.html",
+                templateUrl: "/assignment/views/widget/widget-choose.view.client.html",
                 controller: "NewWidgetController",
                 controllerAs: "model"
             })
@@ -70,6 +70,6 @@
                 controller: "EditWidgetController",
                 controllerAs: "model"
             })
-            .otherwise({redirectTo : '/assignment/views/user/login.view.client.html'})
+            .otherwise({redirectTo : '/login'})
     }
 })();

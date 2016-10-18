@@ -1,0 +1,34 @@
+<div class="container">
+    <form>
+        <div class="form-group">
+            <label for="widgetname">Name</label>
+            <input type="text" id="widgetname" class="form-control" ng-model="model.widget.name"
+                   placeholder="Widget Name" value="Widget name"/>
+        </div>
+        <div class="form-group">
+            <label for="widgettext">Text</label>
+            <input type="text" id="widgettext" class="form-control" ng-model="model.widget.text"
+                   placeholder="Widget Header" value="widget header"/>
+        </div>
+        <div class="form-group">
+            <label for="videourl">URL</label>
+            <input type="text" id="videourl" class="form-control" ng-model="model.widget.url"
+                   placeholder="Image URL" value="https://youtube/"/>
+        </div>
+
+        <div class="form-group">
+            <label for="imagewidth">Width</label>
+            <input type="text" id="imagewidth" class="form-control" ng-model="model.widget.width"
+                   placeholder="Image width" value="100%"/>
+        </div>
+
+        <div class="form-group">
+            <label for="videourl">Upload</label>
+            <input type="file">
+        </div>
+
+        <a ng-click="model.updateWidget()" class="btn btn-primary form-control">Upload Image</a>
+        <br><br>
+        <a ng-click="model.deleteWidget()" class="btn btn-danger form-control">Delete</a>
+    </form>
+</div>

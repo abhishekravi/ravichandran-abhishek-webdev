@@ -26,7 +26,13 @@
         //method to create new widget
         function createWidget(pageId, widget) {
             widget.pageId  = pageId;
+            widget._id = getNewId();
             widgets.push(widget);
+            return widget;
+        }
+
+        function getNewId(){
+            return parseInt(widgets[widgets.length - 1]._id) + 1;
         }
 
         //method to find widgets by page id
@@ -36,7 +42,6 @@
             for (i = 0; i < widgets.length; i++) {
                 if (widgets[i].pageId == pageId) {
                     allWidget.push(widgets[i]);
-                    break;
                 }
             }
             return allWidget;

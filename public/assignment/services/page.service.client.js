@@ -20,7 +20,12 @@
         //method to create new page
         function createPage(websiteId, page) {
             page.websiteId = websiteId;
+            page._id = getNewId();
             pages.push(page);
+        }
+
+        function getNewId(){
+            return parseInt(pages[pages.length - 1]._id) + 1;
         }
 
         //method to find page by website id

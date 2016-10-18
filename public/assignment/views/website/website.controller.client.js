@@ -22,7 +22,7 @@
         var vm = this;
         vm.uid = $routeParams["uid"];
         vm.createWebsite = createWebsite;
-
+        vm.websites = WebsiteService.findWebsitesByUser(vm.uid);
         function createWebsite(website) {
             WebsiteService.createWebsite(vm.uid, website);
             $location.url("/user/" + vm.uid + "/website");
@@ -35,7 +35,7 @@
         vm.uid = $routeParams["uid"];
         vm.updateWebsite = updateWebsite;
         vm.deleteWebsite = deleteWebsite;
-
+        vm.websites = WebsiteService.findWebsitesByUser(vm.uid);
         function init() {
             vm.website = WebsiteService.findWebsiteById(vm.websiteId);
         }

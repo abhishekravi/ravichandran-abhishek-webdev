@@ -3,7 +3,7 @@
  */
 (function () {
     angular
-        .module("WebAppMaker")
+        .module("MyApp")
         .controller("LoginController", LoginController);
 
     /**

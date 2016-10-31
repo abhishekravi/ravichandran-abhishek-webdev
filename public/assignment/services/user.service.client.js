@@ -11,13 +11,7 @@
      * @returns {{createUser: createUser, findUserById: findUserById, findUserByUsername: findUserByUsername, findUserByCredentials: findUserByCredentials, updateUser: updateUser, deleteUser: deleteUser}}
      * @constructor
      */
-    function UserService() {
-        var users = [
-            {_id: "123", username: "alice", password: "alice", firstName: "Alice", lastName: "Wonder"},
-            {_id: "234", username: "bob", password: "bob", firstName: "Bob", lastName: "Marley"},
-            {_id: "345", username: "charly", password: "charly", firstName: "Charly", lastName: "Garcia"},
-            {_id: "456", username: "jannunzi", password: "jannunzi", firstName: "Jose", lastName: "Annunzi"}
-        ];
+    function UserService($http) {
         var api = {
             "createUser": createUser,
             "findUserById": findUserById,
@@ -36,9 +30,7 @@
          * user object
          */
         function createUser(user) {
-            user._id = "567";
-            users.push(user);
-            return user;
+           return $http.post('/api/user',user);
         }
 
         /**
@@ -49,15 +41,8 @@
          * user object
          */
         function findUserById(userId) {
-            var i;
-            var user;
-            for (i = 0; i < users.length; i++) {
-                if (users[i]._id == userId) {
-                    user = users[i];
-                    break;
-                }
-            }
-            return user;
+            var url = '/api/user/' + userId;
+            return $http.get(url);
         }
 
         /**
@@ -68,15 +53,8 @@
          * user object
          */
         function findUserByUsername(username) {
-            var i;
-            var user;
-            for (i = 0; i < users.length; i++) {
-                if (users[i].username == username) {
-                    user = users[i];
-                    break;
-                }
-            }
-            return user;
+            var url = '/api/user?username='+username;
+            return $http.get(url);
         }
 
         /**
@@ -89,31 +67,17 @@
          * user object
          */
         function findUserByCredentials(username, password) {
-            var i;
-            var user;
-            for (i = 0; i < users.length; i++) {
-                if (users[i].username == username && users[i].password == password) {
-                    user = users[i];
-                    break;
-                }
-            }
-            return user;
+            var url = '/api/user?username='+username+'&password='+password;
+            return $http.get(url);
         }
 
         /**
          * method to update user.
-         * @param userId
-         * user id
          * @param user
          * user object
          */
-        function updateUser(userId, user) {
-            for (i = 0; i < users.length; i++) {
-                if (users[i]._id == userId) {
-                    users[i] = user;
-                    break;
-                }
-            }
+        function updateUser(user) {
+            return $http.put('/api/user/'+user._id, user);
         }
 
         /**
@@ -121,13 +85,8 @@
          * @param userId
          * user id
          */
-        function deleteUser(userId) {
-            for (i = 0; i < users.length; i++) {
-                if (users[i]._id == userId) {
-                    users.splice(i,1);
-                    break;
-                }
-            }
+        function deleteUser(uid) {
+            return $http.delete('/api/user/'+uid);
         }
     }
 })();

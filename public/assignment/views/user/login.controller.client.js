@@ -25,12 +25,19 @@
          */
         function login(user) {
             if (user) {
-                user = UserService.findUserByCredentials(user.username, user.password);
-                if (user) {
-                    $location.url("/user/" + user._id);
-                } else {
-                    vm.alert = "Unable to login. Invalid username/password";
-                }
+                var ret = UserService.findUserByCredentials(user.username, user.password);
+                ret
+                    .success(function(user){
+                        if (user != '0') {
+                            $location.url("/user/" + user._id);
+                        } else {
+                            vm.alert = "Unable to login. Invalid username/password";
+                        }
+                    })
+                    .error(function() {
+
+                    });
+
             } else {
                 vm.alert = "Enter credentials to login";
             }

@@ -5,7 +5,7 @@
             <a class="navbar-brand bg-primary" href="#">Profile </a>
         </div>
         <p class="navbar-text pull-right text-primary">
-            <a class="bg-primary pull-right">
+            <a ng-click="model.updateUser()" class="bg-primary pull-right">
                             <span class="glyphicon glyphicon-ok">
                             </span>
             </a>
@@ -38,6 +38,8 @@
        href="#/user/{{model.user._id}}/website">Websites</a>
     <a class="btn btn-danger  btn-block"
        href="#/login">Logout</a>
+    <a class="btn btn-warning btn-block"
+       ng-click="model.deleteUser()">Unregister</a>
 </div>
 
 

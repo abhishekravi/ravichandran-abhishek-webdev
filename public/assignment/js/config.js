@@ -1,7 +1,7 @@
 
 (function() {
     angular
-        .module("WebAppMaker", ['ngRoute'])
+        .module("WebAppMaker")
         .config(Config);
     function Config($routeProvider) {
         $routeProvider

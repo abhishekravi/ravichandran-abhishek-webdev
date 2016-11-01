@@ -29,7 +29,14 @@
          * method to fetch all widgets before loading.
          */
         function init() {
-            vm.widget = WidgetService.findWidgetById(vm.wgid);
+            var ret = WidgetService.findWidgetById(vm.wgid);
+            ret
+                .success(function (widget) {
+                    vm.widget = widget;
+                })
+                .error(function (e) {
+                    
+                });
         }
         init();
 
@@ -37,16 +44,28 @@
          * method to update widget.
          */
         function updateWidget(){
-            WidgetService.updateWidget(vm.wgid, vm.widget);
-            $location.url("/user/" + vm.uid + "/website/" + vm.wid + "/page/" + vm.pid + "/widget");
+            var ret = WidgetService.updateWidget(vm.wgid, vm.widget);
+            ret
+                .success(function (s) {
+                    $location.url("/user/" + vm.uid + "/website/" + vm.wid + "/page/" + vm.pid + "/widget");
+                })
+                .error(function (e) {
+
+                });
         }
 
         /**
          * method to delete widget.
          */
         function deleteWidget(){
-            WidgetService.deleteWidget(vm.wgid);
-            $location.url("/user/" + vm.uid + "/website/" + vm.wid + "/page/" + vm.pid + "/widget");
+            var ret = WidgetService.deleteWidget(vm.wgid);
+            ret
+                .success(function (s) {
+                    $location.url("/user/" + vm.uid + "/website/" + vm.wid + "/page/" + vm.pid + "/widget");
+                })
+                .error(function (e) {
+
+                });
         }
     }
 

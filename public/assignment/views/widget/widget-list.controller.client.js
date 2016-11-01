@@ -27,7 +27,14 @@
          * method to fetch all widgets before loading.
          */
         function init() {
-            vm.widgets = WidgetService.findWidgetsByPageId(vm.pid);
+            var ret = WidgetService.findWidgetsByPageId(vm.pid);
+            ret
+                .success(function (widgets) {
+                    vm.widgets = widgets;
+                })
+                .error(function (e) {
+
+                });
         }
         init();
 

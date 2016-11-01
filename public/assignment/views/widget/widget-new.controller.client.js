@@ -33,22 +33,34 @@
             switch(type){
                 case "html":
                     vm.widget.widgetType = "HTML";
-                    vm.widget = WidgetService.createWidget(vm.pid, vm.widget);
+                    createNewWidget();
                     break;
                 case "header":
                     vm.widget.widgetType = "HEADER";
-                    vm.widget = WidgetService.createWidget(vm.pid, vm.widget);
+                    createNewWidget();
                     break;
                 case "youtube":
                     vm.widget.widgetType = "YOUTUBE";
-                    vm.widget = WidgetService.createWidget(vm.pid, vm.widget);
+                    createNewWidget();
                     break;
                 case "image":
                     vm.widget.widgetType = "IMAGE";
-                    vm.widget = WidgetService.createWidget(vm.pid, vm.widget);
+                    createNewWidget();
                     break;
             }
-            $location.url("/user/" + vm.uid + "/website/" + vm.wid + "/page/" + vm.pid + "/widget/" + vm.widget._id);
+
+        }
+
+        function createNewWidget(){
+            var ret = WidgetService.createWidget(vm.pid, vm.widget);
+            ret
+                .success(function (widget) {
+                    vm.widget = widget;
+                    $location.url("/user/" + vm.uid + "/website/" + vm.wid + "/page/" + vm.pid + "/widget/" + vm.widget._id);
+                })
+                .error(function (e) {
+                    
+                })
         }
     }
 

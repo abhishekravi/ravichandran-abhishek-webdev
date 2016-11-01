@@ -1,12 +1,10 @@
 (function () {
-    angular.module('divSortable', [])
+    angular.module("divSortableDir", [])
         .directive("divSortable", divSortable);
 
     function divSortable() {
-        return {
-            link: function (scope, element, attrs) {
-                element.sortable();
-            }
+        $(".div-sortable").sortable();
+        return{
         }
     }
-});
+})();

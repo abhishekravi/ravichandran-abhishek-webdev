@@ -22,13 +22,26 @@
         vm.uid = $routeParams["uid"];
         vm.updateWebsite = updateWebsite;
         vm.deleteWebsite = deleteWebsite;
-        vm.websites = WebsiteService.findWebsitesByUser(vm.uid);
+        var ret = WebsiteService.findWebsitesByUser(vm.uid);
+        ret.success(function(websites){
+            vm.websites = websites;
+        })
+            .error(function(e){
+
+            });
 
         /**
          * to initialize website edit page.
          */
         function init() {
-            vm.website = WebsiteService.findWebsiteById(vm.websiteId);
+            var ret = WebsiteService.findWebsiteById(vm.websiteId);
+            ret
+                .success(function(website){
+                    vm.website = website;
+                })
+                .error(function (e) {
+                    
+                });
         }
         init();
 
@@ -38,16 +51,28 @@
          * website object
          */
         function updateWebsite(website) {
-            WebsiteService.updateWebsite(vm.websiteId, website);
-            $location.url("/user/" + vm.uid + "/website");
+            var ret = WebsiteService.updateWebsite(vm.websiteId, website);
+            ret
+                .success(function(s){
+                    $location.url("/user/" + vm.uid + "/website");
+                })
+                .error(function (e) {
+
+                });
         }
 
         /**
          * mehtod to delete website.
          */
         function deleteWebsite() {
-            WebsiteService.deleteWebsite(vm.websiteId);
-            $location.url("/user/" + vm.uid + "/website");
+            var ret = WebsiteService.deleteWebsite(vm.websiteId);
+            ret
+                .success(function(s){
+                    $location.url("/user/" + vm.uid + "/website");
+                })
+                .error(function (e) {
+
+                });
         }
     }
 

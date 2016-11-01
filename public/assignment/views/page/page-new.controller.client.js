@@ -27,9 +27,16 @@
          * @param page
          * page object
          */
-        function createNewPage(page){
-            PageService.createPage(vm.wid, page);
-            $location.url("/user/"+ vm.uid + "/website/" + vm.wid + "/page");
+        function createNewPage(page) {
+            var ret = PageService.createPage(vm.wid, page);
+            ret
+                .success(function (s) {
+                    $location.url("/user/" + vm.uid + "/website/" + vm.wid + "/page");
+                })
+                .error(function (e) {
+
+                })
+
         }
     }
 

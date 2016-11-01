@@ -11,12 +11,7 @@
      * @returns {{createPage: createPage, findPageByWebsiteId: findPageByWebsiteId, findPageById: findPageById, updatePage: updatePage, deletePage: deletePage}}
      * @constructor
      */
-    function PageService() {
-        var pages = [
-            {"_id": "321", "name": "Post 1", "websiteId": "456"},
-            {"_id": "432", "name": "Post 2", "websiteId": "456"},
-            {"_id": "543", "name": "Post 3", "websiteId": "456"}
-        ];
+    function PageService($http) {
 
         var api = {
             "createPage": createPage,
@@ -35,9 +30,8 @@
          * page object
          */
         function createPage(websiteId, page) {
-            page.websiteId = websiteId;
-            page._id = getNewId();
-            pages.push(page);
+            var url = '/api/website/' + websiteId + '/page';
+            return $http.post(url,page);
         }
 
         /**
@@ -57,14 +51,8 @@
          * array of pages
          */
         function findPageByWebsiteId(websiteId) {
-            var i;
-            var viewPages = [];
-            for (i = 0; i < pages.length; i++) {
-                if (pages[i].websiteId == websiteId) {
-                    viewPages.push(pages[i]);
-                }
-            }
-            return viewPages;
+            var url = '/api/website/' + websiteId + '/page';
+            return $http.get(url);
         }
 
         /**
@@ -75,15 +63,8 @@
          * page object
          */
         function findPageById(pageId) {
-            var i;
-            var page;
-            for (i = 0; i < pages.length; i++) {
-                if (pages[i]._id == pageId) {
-                    page = pages[i];
-                    break;
-                }
-            }
-            return page;
+            var url = '/api/page/' + pageId;
+            return $http.get(url);
         }
 
         /**
@@ -94,13 +75,8 @@
          * updated page object
          */
         function updatePage(pageId, page) {
-            var i;
-            for (i = 0; i < pages.length; i++) {
-                if (pages[i]._id == pageId) {
-                    pages[i] = page;
-                    break;
-                }
-            }
+            var url = '/api/page/' + pageId;
+            return $http.put(url,page);
         }
 
         /**
@@ -109,13 +85,8 @@
          * page id
          */
         function deletePage(pageId) {
-            var i;
-            for (i = 0; i < pages.length; i++) {
-                if (pages[i]._id == pageId) {
-                    pages.splice(i, 1);
-                    break;
-                }
-            }
+            var url = '/api/page/' + pageId;
+            return $http.delete(url);
         }
 
     }

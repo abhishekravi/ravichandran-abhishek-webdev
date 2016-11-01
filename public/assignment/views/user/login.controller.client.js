@@ -25,19 +25,23 @@
          */
         function login(user) {
             if (user) {
-                var ret = UserService.findUserByCredentials(user.username, user.password);
-                ret
-                    .success(function(user){
-                        if (user != '0') {
-                            $location.url("/user/" + user._id);
-                        } else {
-                            vm.alert = "Unable to login. Invalid username/password";
-                        }
-                    })
-                    .error(function() {
+                if (user.username == '') {
+                    vm.alert = "Enter credentials to login";
+                } else {
 
-                    });
+                    var ret = UserService.findUserByCredentials(user.username, user.password);
+                    ret
+                        .success(function (user) {
+                            if (user != '0') {
+                                $location.url("/user/" + user._id);
+                            } else {
+                                vm.alert = "Unable to login. Invalid username/password";
+                            }
+                        })
+                        .error(function () {
 
+                        });
+                }
             } else {
                 vm.alert = "Enter credentials to login";
             }

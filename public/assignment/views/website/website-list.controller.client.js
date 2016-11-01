@@ -23,7 +23,12 @@
          * method to populate website list page.
          */
         function init() {
-            vm.websites = WebsiteService.findWebsitesByUser(userId);
+            var ret = WebsiteService.findWebsitesByUser(userId);
+            ret.success(function(websites){
+                vm.websites = websites;
+            }).error(function (e) {
+                
+            });
         }
 
         init();

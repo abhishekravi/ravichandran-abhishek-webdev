@@ -1,6 +1,6 @@
 module.exports = function (app) {
     var multer = require('multer'); // npm install multer --save
-    var upload = multer({ dest: __dirname+'/../../public/uploads' });
+    var upload = multer({ dest: __dirname+'/../../public/assignment/uploads' });
 
 
     app.post ("/api/upload", upload.single('myFile'), uploadImage);

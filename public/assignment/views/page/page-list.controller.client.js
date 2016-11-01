@@ -18,7 +18,14 @@
         var vm = this;
         vm.wid = $routeParams["wid"];
         vm.uid = $routeParams["uid"];
-        vm.pages = PageService.findPageByWebsiteId(vm.wid);
+        var ret = PageService.findPageByWebsiteId(vm.wid);
+        ret
+            .success(function (pages) {
+                vm.pages = pages;
+            })
+            .error(function (e) {
+
+            });
     }
 
 

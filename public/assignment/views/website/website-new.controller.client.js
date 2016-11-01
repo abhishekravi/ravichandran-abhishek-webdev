@@ -20,7 +20,13 @@
         var vm = this;
         vm.uid = $routeParams["uid"];
         vm.createWebsite = createWebsite;
-        vm.websites = WebsiteService.findWebsitesByUser(vm.uid);
+        var ret = WebsiteService.findWebsitesByUser(vm.uid);
+        ret.success(function(websites){
+            vm.websites = websites;
+        })
+            .error(function(e){
+
+            });
 
         /**
          * method to create new web site.
@@ -28,8 +34,14 @@
          * website object
          */
         function createWebsite(website) {
-            WebsiteService.createWebsite(vm.uid, website);
-            $location.url("/user/" + vm.uid + "/website");
+            var ret = WebsiteService.createWebsite(vm.uid, website);
+            ret.success(function (s) {
+                $location.url("/user/" + vm.uid + "/website");
+            })
+                .error(function (e) {
+
+                });
+
         }
     }
 

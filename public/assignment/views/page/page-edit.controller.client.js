@@ -28,7 +28,14 @@
          * method to initialize page with data.
          */
         function init() {
-            vm.page = PageService.findPageById(vm.pid);
+            var ret = PageService.findPageById(vm.pid);
+            ret
+                .success(function (page) {
+                    vm.page = page;
+                })
+                .error(function (e) {
+                    
+                });
         }
         init();
 
@@ -38,16 +45,30 @@
          * page object
          */
         function updatePage(page) {
-            PageService.updatePage(vm.pid, page);
-            $location.url("/user/" + vm.uid + "/website/" + vm.wid + "/page");
+            var ret = PageService.updatePage(vm.pid, page);
+            ret
+                .success(function (s) {
+                    $location.url("/user/" + vm.uid + "/website/" + vm.wid + "/page");
+                })
+                .error(function (e) {
+
+                });
+
         }
 
         /**
          * method to delete the page.
          */
         function deletePage() {
-            PageService.deletePage(vm.pid);
-            $location.url("/user/" + vm.uid + "/website/" + vm.wid + "/page");
+            var ret = PageService.deletePage(vm.pid);
+            ret
+                .success(function (s) {
+                    $location.url("/user/" + vm.uid + "/website/" + vm.wid + "/page");
+                })
+                .error(function (e) {
+
+                });
+
         }
 
     }

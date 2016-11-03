@@ -52,6 +52,8 @@
         }
 
         function createNewWidget(){
+            if(vm.widget.width)
+                vm.widget.width = vm.widget.width + '%';
             var ret = WidgetService.createWidget(vm.pid, vm.widget);
             ret
                 .success(function (widget) {

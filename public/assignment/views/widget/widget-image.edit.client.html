@@ -1,35 +1,37 @@
 <div class="container">
-        <div class="form-group">
-            <label for="widgetname">Name</label>
-            <input type="text" id="widgetname" class="form-control" ng-model="model.widget.name"
-                   placeholder="Widget Name" value="Widget name"/>
+    <div class="form-group">
+        <label for="widgetname">Name</label>
+        <input type="text" id="widgetname" class="form-control" ng-model="model.widget.name"
+               placeholder="Widget Name" value="Widget name"/>
+    </div>
+    <div class="form-group">
+        <label for="widgettext">Text</label>
+        <input type="text" id="widgettext" class="form-control" ng-model="model.widget.text"
+               placeholder="Widget Header" value="widget header"/>
+    </div>
+    <div class="form-group">
+        <label for="videourl">URL</label>
+        <input type="text" id="videourl" class="form-control" ng-model="model.widget.url"
+               placeholder="Image URL" value="https://youtube/"/>
+    </div>
+
+    <div class="form-group">
+        <label for="imagewidth">Width</label>
+        <input type="text" id="imagewidth" class="form-control" ng-model="model.widget.width"
+               placeholder="Image width" value="100%"/>
+    </div>
+
+
+    <form id="imageUpload">
+        <div id="imgUp" class="form-group has-feedback">
+            <input name="myFile" type="file" class="form-control"/>
+            <span class="glyphicon form-control-feedback"></span>
         </div>
-        <div class="form-group">
-            <label for="widgettext">Text</label>
-            <input type="text" id="widgettext" class="form-control" ng-model="model.widget.text"
-                   placeholder="Widget Header" value="widget header"/>
-        </div>
-        <div class="form-group">
-            <label for="videourl">URL</label>
-            <input type="text" id="videourl" class="form-control" ng-model="model.widget.url"
-                   placeholder="Image URL" value="https://youtube/"/>
-        </div>
-
-        <div class="form-group">
-            <label for="imagewidth">Width</label>
-            <input type="text" id="imagewidth" class="form-control" ng-model="model.widget.width"
-                   placeholder="Image width" value="100%"/>
-        </div>
+        <input name="width" value="{{model.widget.width}}" style="display: none"/>
+        <input name="widgetId" value="{{model.widget._id}}" style="display: none"/>
+        <button ng-click="model.uploadImage()" class="btn btn-block btn-primary">Upload Image</button>
+    </form>
 
 
-
-        <form action="/api/upload"  method="post" enctype="multipart/form-data">
-            <input  name="myFile"   type="file" class="form-control"/>
-            <input  name="width"    value="{{model.widget.width}}" style="display: none"/>
-            <input  name="widgetId" value="{{model.widget._id}}"   style="display: none"/>
-            <button type="submit"   class="btn btn-block btn-primary">Upload Image</button>
-        </form>
-
-
-        <a ng-click="model.deleteWidget()" class="btn btn-danger form-control">Delete</a>
+    <a ng-click="model.deleteWidget()" class="btn btn-danger form-control">Delete</a>
 </div>

@@ -65,7 +65,7 @@
          * widget object
          */
         function findWidgetById(widgetId) {
-            var url = '/api/widget' + widgetId;
+            var url = '/api/widget/' + widgetId;
             return $http.get(url);
         }
 
@@ -77,7 +77,7 @@
          * widget object
          */
         function updateWidget(widgetId, widget) {
-            var url = '/api/widget' + widgetId;
+            var url = '/api/widget/' + widgetId;
             return $http.put(url, widget);
         }
 
@@ -87,7 +87,7 @@
          * widget id
          */
         function deleteWidget(widgetId) {
-            var url = '/api/widget' + widgetId;
+            var url = '/api/widget/' + widgetId;
             return $http.delete(url);
         }
 

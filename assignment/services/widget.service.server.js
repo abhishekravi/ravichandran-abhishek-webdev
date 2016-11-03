@@ -130,13 +130,9 @@ module.exports = function (app) {
      * response
      */
     function uploadImage(req, res) {
-
-
         var widgetId      = req.body.widgetId;
         var width         = req.body.width;
         var myFile        = req.file;
-
-
         var originalname  = myFile.originalname; // file name on user's computer
         var filename      = myFile.filename;     // new file name in upload folder
         var path          = myFile.path;         // full path of uploaded file

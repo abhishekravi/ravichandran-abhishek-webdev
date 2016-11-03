@@ -24,6 +24,7 @@
         vm.wgid = $routeParams["wgid"];
         vm.updateWidget = updateWidget;
         vm.deleteWidget = deleteWidget;
+        vm.uploadImage = uploadImage;
 
         /**
          * method to fetch all widgets before loading.
@@ -35,15 +36,18 @@
                     vm.widget = widget;
                 })
                 .error(function (e) {
-                    
+
                 });
         }
+
         init();
 
         /**
          * method to update widget.
          */
-        function updateWidget(){
+        function updateWidget() {
+            if(vm.widget.width)
+                vm.widget.width = vm.widget.width + '%';
             var ret = WidgetService.updateWidget(vm.wgid, vm.widget);
             ret
                 .success(function (s) {
@@ -57,7 +61,7 @@
         /**
          * method to delete widget.
          */
-        function deleteWidget(){
+        function deleteWidget() {
             var ret = WidgetService.deleteWidget(vm.wgid);
             ret
                 .success(function (s) {
@@ -66,6 +70,35 @@
                 .error(function (e) {
 
                 });
+        }
+
+        /**
+         * method to upload image and get path.
+         */
+        function uploadImage() {
+            var formData = new FormData($('#imageUpload')[0]);
+            $.ajax({
+                url: '/api/upload',
+                contentType: false,
+                processData: false,
+                data: formData,
+                type: 'POST',
+                success: function (data) {
+                    vm.widget.url = 'uploads/' + data.filename;
+                    $('#imgUp').removeClass('has-error');
+                    $('#imgUp').find('span').removeClass('glyphicon-remove');
+                    $('#imgUp').addClass('has-success');
+                    $('#imgUp').find('span').addClass('glyphicon-ok');
+                    console.log(data);
+                },
+                error: function (request, status, error) {
+                    console.log(request.responseText);
+                    $('#imgUp').removeClass('has-success');
+                    $('#imgUp').find('span').removeClass('glyphicon-ok');
+                    $('#imgUp').addClass('has-error');
+                    $('#imgUp').find('span').addClass('glyphicon-remove');
+                }
+            });
         }
     }
 

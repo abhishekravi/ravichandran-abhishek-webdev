@@ -9,6 +9,7 @@ module.exports = function (app) {
     app.get('/api/user', findUser);
     app.get('/api/user/:uid', findUserById);
     app.get('/api/user?username=username', findUserByUsername);
+    app.get('/api/user?username=username&password=password', findUserByCredentials);
     app.post('/api/user', createUser);
     app.put('/api/user/:uid',updateUser);
     app.delete('/api/user/:uid',deleteUser);

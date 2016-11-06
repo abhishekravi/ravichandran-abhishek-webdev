@@ -18,7 +18,8 @@
             "findWidgetsByPageId": findWidgetsByPageId,
             "findWidgetById": findWidgetById,
             "updateWidget": updateWidget,
-            "deleteWidget": deleteWidget
+            "deleteWidget": deleteWidget,
+            "sort" : sort
         };
         return api;
 
@@ -89,6 +90,21 @@
         function deleteWidget(widgetId) {
             var url = '/api/widget/' + widgetId;
             return $http.delete(url);
+        }
+
+        /**
+         * method to update the positions of widgets.
+         * @param pid
+         * page id
+         * @param start
+         * start index
+         * @param end
+         * changed index
+         * @returns {*}
+         */
+        function sort(pid, start, end){
+            var url = '/api/page/' + pid + '/widget?start=' + start + '&end=' + end;
+            return $http.put(url);
         }
 
     }

@@ -19,7 +19,8 @@
             "findWidgetById": findWidgetById,
             "updateWidget": updateWidget,
             "deleteWidget": deleteWidget,
-            "sort" : sort
+            "updateImage": updateImage,
+            "sort": sort
         };
         return api;
 
@@ -33,7 +34,7 @@
          * widget object
          */
         function createWidget(pageId, widget) {
-            var url = '/api/page/' + pageId +'/widget';
+            var url = '/api/page/' + pageId + '/widget';
             return $http.post(url, widget);
         }
 
@@ -42,7 +43,7 @@
          * @returns {number}
          * widget id
          */
-        function getNewId(){
+        function getNewId() {
             return parseInt(widgets[widgets.length - 1]._id) + 1;
         }
 
@@ -83,6 +84,19 @@
         }
 
         /**
+         * method to update flickr image url.
+         * @param widgetId
+         * widget id
+         * @param imageUrl
+         * image url
+         * @returns {*}
+         */
+        function updateImage(widgetId, imageUrl) {
+            var url = '/api/widget/' + widgetId;
+            return $http.put(url, {url:imageUrl});
+        }
+
+        /**
          * method to delete widget.
          * @param widgetId
          * widget id
@@ -102,7 +116,7 @@
          * changed index
          * @returns {*}
          */
-        function sort(pid, start, end){
+        function sort(pid, start, end) {
             var url = '/api/page/' + pid + '/widget?start=' + start + '&end=' + end;
             return $http.put(url);
         }

@@ -70,6 +70,11 @@
                 controller: "EditWidgetController",
                 controllerAs: "model"
             })
+            .when("/user/:uid/website/:wid/page/:pid/widget/:wgid/search", {
+                templateUrl: "/assignment/views/widget/widget-flickr-search.view.client.html",
+                controller: "FlickrWidgetController",
+                controllerAs: "model"
+            })
             .otherwise({redirectTo : '/login'})
     }
 })();

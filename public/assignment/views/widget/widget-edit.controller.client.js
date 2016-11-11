@@ -25,6 +25,7 @@
         vm.updateWidget = updateWidget;
         vm.deleteWidget = deleteWidget;
         vm.uploadImage = uploadImage;
+        vm.searchImage = searchImage;
 
         /**
          * method to fetch all widgets before loading.
@@ -99,6 +100,13 @@
                     $('#imgUp').find('span').addClass('glyphicon-remove');
                 }
             });
+        }
+
+        /**
+         * redirection to search page.
+         */
+        function searchImage(){
+            $location.url("/user/" + vm.uid + "/website/" + vm.wid + "/page/" + vm.pid + "/widget/" + vm.wgid + "/search");
         }
     }
 

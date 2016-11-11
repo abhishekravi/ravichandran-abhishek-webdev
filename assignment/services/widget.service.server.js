@@ -1,25 +1,29 @@
 module.exports = function (app) {
     var multer = require('multer'); // npm install multer --save
-    var upload = multer({ dest: __dirname+'/../../public/assignment/uploads' });
+    var upload = multer({dest: __dirname + '/../../public/assignment/uploads'});
     var widgets = [
-        { "_id": "123", "widgetType": "HEADER", "pageId": "321", "size": 2, "text": "GIZMODO", "pos" : 0},
-        { "_id": "234", "widgetType": "HEADER", "pageId": "321", "size": 4, "text": "Lorem ipsum", "pos" : 1},
-        { "_id": "345", "widgetType": "IMAGE", "pageId": "321", "width": "100%",
-            "url": "http://lorempixel.com/400/200/", "pos" : 2},
-        { "_id": "456", "widgetType": "HTML", "pageId": "321", "text": "<p>Lorem ipsum</p>", "pos" : 3},
-        { "_id": "567", "widgetType": "HEADER", "pageId": "321", "size": 4, "text": "Lorem ipsum", "pos" : 4},
-        { "_id": "678", "widgetType": "YOUTUBE", "pageId": "321", "width": "100%",
-            "url": "https://youtu.be/AM2Ivdi9c4E" , "pos" : 5},
-        { "_id": "789", "widgetType": "HTML", "pageId": "321", "text": "<p>Lorem ipsum</p>", "pos" : 6  }
+        {"_id": "123", "widgetType": "HEADER", "pageId": "321", "size": 2, "text": "GIZMODO", "pos": 0},
+        {"_id": "234", "widgetType": "HEADER", "pageId": "321", "size": 4, "text": "Lorem ipsum", "pos": 1},
+        {
+            "_id": "345", "widgetType": "IMAGE", "pageId": "321", "width": "100%",
+            "url": "http://lorempixel.com/400/200/", "pos": 2
+        },
+        {"_id": "456", "widgetType": "HTML", "pageId": "321", "text": "<p>Lorem ipsum</p>", "pos": 3},
+        {"_id": "567", "widgetType": "HEADER", "pageId": "321", "size": 4, "text": "Lorem ipsum", "pos": 4},
+        {
+            "_id": "678", "widgetType": "YOUTUBE", "pageId": "321", "width": "100%",
+            "url": "https://youtu.be/AM2Ivdi9c4E", "pos": 5
+        },
+        {"_id": "789", "widgetType": "HTML", "pageId": "321", "text": "<p>Lorem ipsum</p>", "pos": 6}
     ];
 
-    app.post ("/api/upload", upload.single('myFile'), uploadImage);
-    app.post ("/api/page/:pid/widget",  createWidget);
+    app.post("/api/upload", upload.single('myFile'), uploadImage);
+    app.post("/api/page/:pid/widget", createWidget);
     app.put("/api/page/:pid/widget", sort);
-    app.get ("/api/page/:pid/widget",  findWidgetsByPageId);
-    app.get ("/api/widget/:wgid",  findWidgetById);
-    app.put ("/api/widget/:wgid",  updateWidgetReq);
-    app.delete ("/api/widget/:wgid",  deleteWidget);
+    app.get("/api/page/:pid/widget", findWidgetsByPageId);
+    app.get("/api/widget/:wgid", findWidgetById);
+    app.put("/api/widget/:wgid", updateWidgetReq);
+    app.delete("/api/widget/:wgid", deleteWidget);
 
 
     /**
@@ -43,7 +47,7 @@ module.exports = function (app) {
      * @returns {number}
      * widget id
      */
-    function getNewId(){
+    function getNewId() {
         return parseInt(widgets[widgets.length - 1]._id) + 1;
     }
 
@@ -52,8 +56,8 @@ module.exports = function (app) {
      * @returns {number}
      * last position + 1
      */
-    function getNewPos(widgets){
-        if(widgets.length == 0)
+    function getNewPos(widgets) {
+        if (widgets.length == 0)
             return 0;
         return parseInt(widgets[widgets.length - 1].pos) + 1;
     }
@@ -111,12 +115,21 @@ module.exports = function (app) {
      * @param widgetId
      * widget id
      */
-    function updateWidget(widget, widgetId){
+    function updateWidget(widget, widgetId) {
         var i;
-        for (i = 0; i < widgets.length; i++) {
-            if (widgets[i]._id == widgetId) {
-                widgets[i] = widget;
-                break;
+        if (widget.pos) {
+            for (i = 0; i < widgets.length; i++) {
+                if (widgets[i]._id == widgetId) {
+                    widgets[i] = widget;
+                    break;
+                }
+            }
+        } else {
+            for (i = 0; i < widgets.length; i++) {
+                if (widgets[i]._id == widgetId) {
+                    widgets[i].url = widget.url;
+                    break;
+                }
             }
         }
     }
@@ -133,7 +146,7 @@ module.exports = function (app) {
         var i;
         for (i = 0; i < widgets.length; i++) {
             if (widgets[i]._id == widgetId) {
-                widgets.splice(i,1);
+                widgets.splice(i, 1);
                 break;
             }
         }
@@ -148,7 +161,7 @@ module.exports = function (app) {
      * response
      */
     function uploadImage(req, res) {
-        var myFile        = req.file;
+        var myFile = req.file;
         res.send(myFile);
     }
 
@@ -159,7 +172,7 @@ module.exports = function (app) {
      * @returns {Array}
      * array of widgets
      */
-    function getWidgetsForPage(pid){
+    function getWidgetsForPage(pid) {
         var i;
         var allWidget = [];
         for (i = 0; i < widgets.length; i++) {
@@ -168,7 +181,7 @@ module.exports = function (app) {
             }
         }
         allWidget.sort(function (a, b) {
-           return a.pos - b.pos;
+            return a.pos - b.pos;
         });
         return allWidget;
     }
@@ -180,7 +193,7 @@ module.exports = function (app) {
      * @param res
      * response
      */
-    function sort(req, res){
+    function sort(req, res) {
         var pageId = req.params.pid;
         var widgetArr = getWidgetsForPage(pageId);
         var query = req.query;

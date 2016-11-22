@@ -2,36 +2,156 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
         <link rel="stylesheet"
               href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
-        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+                integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+                crossorigin="anonymous"></script>
+        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"/>
+        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"/>
+        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="css/jquery.fullPage.css"/>
+        <script type="text/javascript" src="js/jquery.fullPage.min.js"></script>
         <link href="css/styles.css" rel="stylesheet">
-        <title>My Web Page</title>
+        <script src="js/app.js"></script>
+        <title>Abhishek's Web Page</title>
     </head>
     <body>
         <div class="container-fluid">
-            <nav class="navbar navbar-inverse navbar-fixed-top">
-                <div class="navbar-header"><a class="navbar-brand" href="#">Links:</a>
+            <div class="navigation">
+                <nav class="navbar navbar-inverse navbar-fixed-top">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                                data-target="#bs-example-navbar-collapse-1">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"> </span>
+                            <span class="icon-bar"> </span>
+                            <span class="icon-bar"> </span>
+                        </button>
+                    </div>
+                    <div class="collapse navbar-collapse nav-wil" id="bs-example-navbar-collapse-1">
+                        <nav class="cl-effect-7" id="cl-effect-7">
+                            <ul class="nav navbar-nav">
+                                <li class="active"><a class="scroll" href="#home">Home <span
+                                        class="sr-only">(current)</span></a></li>
+                                <li><a class="scroll" href="#about">About</a></li>
+                                <li><a class="scroll" href="#Resume">Resume</a></li>
+                                <li><a class="scroll" href="#projects">Projects</a></li>
+                                <li><a class="scroll" href="#contact">Contact</a></li>
+                            </ul>
+                        </nav>
+                        <div class="clearfix"></div>
+                    </div><!-- /.navbar-collapse -->
+                </nav>
+            </div>
+            <div id="fullpage">
+                <div id="section0" class="text-center section">
+                    <div class="container hidden-xs large-image">
+                        <img class="img-responsive img-circle" src="imgs/profile.jpg" alt="">
+                    </div>
+                    <div class="container visible-xs small-image">
+                        <img class="img-responsive img-circle" src="imgs/profile.jpg" alt="">
+                    </div>
+                    <h1>Abhishek Ravi Chandran </h1>
+                    <a href="https://www.linkedin.com/in/abhirc" target="_blank">
+                        <i class="fa fa-linkedin-square fa-2x" aria-hidden="true"></i>
+                    </a>
+                    <a href="https://github.com/abhishekravi/ravichandran-abhishek-webdev" target="_blank">
+                        <i class="fa fa-github fa-2x" aria-hidden="true"></i>
+                    </a>
                 </div>
-                <ul class="nav navbar-nav">
-                    <li>
-                        <a href="project/index.html">Project</a>
-                    </li>
-                    <li>
-                        <a href="assignment/index.html">Assignment</a>
-                    </li>
-                    <li>
-                        <a href="test/index.html">Test MongoDB</a>
-                    </li>
-                    <li>
-                        <a href="https://github.com/abhishekravi/ravichandran-abhishek-webdev">My GIT repository</a>
-                    </li>
-                </ul>
-            </nav>
-            <div class="page-header text-center">
-                <h1>Abhishek Ravi Chandran <br><small>Home Page</small></h1>
+                <div id="section1" class="section">
+                    <div class="bs-example">
+                        <ul class="nav nav-tabs">
+                            <li class="active"><a data-toggle="tab" href="#sectionA">Skills</a></li>
+                            <li><a data-toggle="tab" href="#sectionB">Work Experience</a></li>
+                            <li><a data-toggle="tab" href="#sectionC">Education</a></li>
+                        </ul>
+                        <div class="tab-content">
+                            <div id="sectionA" class="tab-pane fade in active">
+                                <h2>Skills</h2>
+                                <ul>
+                                    <li> Languages: Java, Python</li>
+                                    <li>Front-end: HTML5, CSS, JavaScript, jQuery, Bootstrap, Express.js, Angular.js,
+                                        and Node.js
+                                    </li>
+                                    <li>Framework: J2EE - Spring MVC, Spring Core, Spring Integration, ORM - Oracle
+                                        TopLink, Hadoop, Spark, Python Flask
+                                    </li>
+                                    <li>Database: Oracle, MongoDB, DB2, MySQL</li>
+                                    <li>Tools: Eclipse IDE, WebStorm, PyCharm, Jenkins, GitHub, CVS, Apache Maven</li>
+                                </ul>
+                            </div>
+                            <div id="sectionB" class="tab-pane fade">
+                                <h2>Work Experience</h2>
+                                <h3>Cognizant Technology Solutions, Chennai, India</h3>
+                                <h4>Associate – IT Services, Global Delivery Center – Chennai Dec 2009 – Dec 2014</h4>
+                                <i>Retirement Advisor Forecast Viewer</i>
+                                <ul>
+                                    <li> Provided feature enhancements to TIAA-CREF’s retirement planner using Spring
+                                         MVC and jQuery in Agile environment
+                                    </li>
+                                </ul>
+                                <i>Common Order Management System</i>
+                                <ul>
+                                    <li>Built a middle-layer to route order events from an E-commerce application to a
+                                        Mainframe using Spring Integration
+                                    </li>
+                                    <li> Applied Publisher-Subscriber design pattern for messaging channel and
+                                         transformed
+                                         order events from XML to POJOs
+                                    </li>
+                                </ul>
+                                <i>Shelf Space Utilization and Product Catalog</i>
+                                <ul>
+                                    <li> Implemented a shelf space utilization algorithm by maximizing the number of
+                                         pallets
+                                         using Java Spring Framework to optimize item stocking at stores.
+                                    </li>
+                                    <li> Created a product catalog system to review products before being put up in the
+                                         ecommerce site using Spring MVC.
+                                    </li>
+                                    <li> Generated pricing reports using COBOL and DB2 on a Z/OS mainframe for a leading
+                                         Texas-based retail chain
+                                    </li>
+                                    <li> Resolved 50 critical bugs and 100+ minor bugs/fixes on integration test cases
+                                    </li>
+                                    <li> Accomplishment: achieved 95% code quality; received the Retail CZAR Award for
+                                         April
+                                         2011; received the Master Mind award on multiple occasions for technical
+                                         prowess.
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div id="sectionC" class="tab-pane fade">
+                                <h2>Education</h2>
+                                <b>Northeastern University</b>, Boston, MA (GPA: 3.5) Jan 2015 – Dec 2016
+                                <br>
+                                                              Candidate for Master of Science in Computer Science
+                                <br>
+                                <b>Related courses:</b> Managing Software Development, Algorithms, Programming Design
+                                                              Paradigm, Web Development
+                                                              Fundamentals of Computer Networks, Parallel Data
+                                                              Processing in MapReduce, Advanced Software Dev
+                                <br>
+                                <b>Anna University</b>, Chennai, India June 2009
+                                <br>
+                                                              Bachelor of Technology in Information Technology
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="section2" class="section">
+                    <a href="assignment/index.html"><h1>Assignment - CS 5610</h1></a>
+                    <a href="project/index.html"><h1>Project - CS 5610</h1></a>
+                </div>
+                <div id="section3" class="section">
+                    Contact Info
+                </div>
             </div>
         </div>
     </body>

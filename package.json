@@ -19,6 +19,7 @@
   "dependencies": {
     "body-parser": "^1.15.1",
     "express": "^4.13.4",
+    "fullpage.js": "^2.8.8",
     "mongoose": "^4.4.15",
     "multer": "^1.2.0",
     "nonce": "^1.0.4",

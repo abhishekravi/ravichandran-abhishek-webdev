@@ -20,31 +20,38 @@
         <div ng-switch="widget.widgetType">
             <div ng-switch-when="HEADER" class="container">
                 <a href="#/user/{{model.uid}}/website/{{model.wid}}/page/{{model.pid}}/widget/{{widget._id}}"
-                   class="pull-right">
+                   class="widget-icons pull-right">
                     <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
                 </a>
                 <div ng-include="'views/widget/widget-heading.view.client.html'"></div>
             </div>
             <div ng-switch-when="IMAGE" class="container">
                 <a href="#/user/{{model.uid}}/website/{{model.wid}}/page/{{model.pid}}/widget/{{widget._id}}"
-                   class="pull-right">
+                   class="widget-icons pull-right">
                     <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
                 </a>
                 <div ng-include="'views/widget/widget-image.view.client.html'"></div>
             </div>
-            <div ng-switch-when="YOUTUBE" class="container">
+            <div ng-switch-when="YOUTUBE" class="container youtube-widget">
                 <a href="#/user/{{model.uid}}/website/{{model.wid}}/page/{{model.pid}}/widget/{{widget._id}}"
-                   class="pull-right">
+                   class="widget-icons pull-right ">
                     <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
                 </a>
                 <div ng-include="'views/widget/widget-youtube.view.client.html'"></div>
             </div>
             <div ng-switch-when="HTML" class="container">
                 <a href="#/user/{{model.uid}}/website/{{model.wid}}/page/{{model.pid}}/widget/{{widget._id}}"
-                   class="pull-right">
+                   class="widget-icons pull-right">
                     <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
                 </a>
                 <div ng-include="'views/widget/widget-html.view.client.html'"></div>
+            </div>
+            <div ng-switch-when="TEXT">
+                <a href="#/user/{{model.uid}}/website/{{model.wid}}/page/{{model.pid}}/widget/{{widget._id}}"
+                   class="widget-icons pull-right">
+                    <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
+                </a>
+                <div ng-include="'views/widget/widget-edit.view.client.html'"></div>
             </div>
         </div>
     </div>

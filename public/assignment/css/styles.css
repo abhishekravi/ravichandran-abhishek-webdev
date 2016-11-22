@@ -20,7 +20,7 @@ input.form-control {
 }
 
 .widget-icons{
-    position: absolute; top:0; right:0
+    position: relative; z-index:10;
 }
 
 .widget-div{
@@ -30,4 +30,18 @@ input.form-control {
 
 #draggablePanelList .panel-heading {
     cursor: move;
+}
+
+.youtube-widget {
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 */
+    height: 0;
+}
+
+.youtube-widget iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
 }

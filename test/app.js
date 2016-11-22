@@ -4,8 +4,10 @@ module.exports = function(app)
     app.post("/api/test", createMessage);
     app.delete("/api/test/:id", deleteMessage);
 
-    var connectionString = 'mongodb://webdev:webdev@ds033036.mlab.com:33036/heroku_n8lqdsvf';
-    //var connectionString = 'mongodb://127.0.0.1:27017/test';
+    var connectionString = 'mongodb://127.0.0.1:27017/webdev';
+    if(process.env.MONGODB_URI){
+        connectionString = process.env.MONGODB_URI;
+    }
 
     var mongoose = require("mongoose");
     mongoose.connect(connectionString);

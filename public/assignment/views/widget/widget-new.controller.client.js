@@ -47,6 +47,10 @@
                     vm.widget.widgetType = "IMAGE";
                     createNewWidget();
                     break;
+                case "text":
+                    vm.widget.widgetType = "TEXT";
+                    createNewWidget();
+                    break;
             }
 
         }

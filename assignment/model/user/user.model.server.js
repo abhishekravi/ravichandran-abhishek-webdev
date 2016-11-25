@@ -100,11 +100,25 @@ module.exports = function () {
      */
     function deleteUser(uid) {
         return UserModel.findOne(
-            {
-                _id: uid
-            },
+            {_id:uid},
             function (err,user) {
-                user.remove();
-            });
+                return model.websiteModel.findAllWebsitesForUser(uid)
+                    .then(function (websites) {
+                        for(w in websites){
+                            model.pageModel.findAllPagesForWebsite(websites[w]._id)
+                                .then(function (pages) {
+                                    for(p in pages){
+                                        model.widgetModel.cleanup(pages[p]._id)
+                                            .then(function () {
+                                                pages[p].remove();
+                                            });
+                                    }
+                                    websites[w].remove();
+                                })
+                        }
+                        user.remove();
+                    });
+            }
+        );
     }
 };

@@ -101,12 +101,12 @@ module.exports = function () {
                     .then(function (website) {
                         website.pages.pull(pid);
                         website.save();
-                        return PageModel.remove(
-                            {
-                                _id: pid
-                            }
-                        );
+                        model.widgetModel.cleanup(pid)
+                            .then(function () {
+                                page.remove();
+                            });
                     })
             });
     }
+
 };

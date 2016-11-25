@@ -19,7 +19,7 @@ module.exports = function () {
      * set master model.
      * @param _model
      */
-    function setModel(_model){
+    function setModel(_model) {
         model = _model;
     }
 
@@ -40,7 +40,7 @@ module.exports = function () {
                         webObj._user = userObj._id;
                         webObj.save();
                         return userObj.save();
-                    },function (error) {
+                    }, function (error) {
                         console.log(error);
                     });
             });
@@ -54,7 +54,7 @@ module.exports = function () {
      */
     function findAllWebsitesForUser(userId) {
         return WebsiteModel.find(
-            {_user : userId}
+            {_user: userId}
         );
     }
 
@@ -100,12 +100,18 @@ module.exports = function () {
                     .then(function (user) {
                         user.websites.pull(wid);
                         user.save();
-                        return WebsiteModel.remove(
-                            {
-                                _id: wid
-                            }
-                        );
+                        model.pageModel.findAllPagesForWebsite(website._id)
+                            .then(function (pages) {
+                                for(p in pages){
+                                    model.widgetModel.cleanup(pages[p]._id)
+                                        .then(function () {
+                                            pages[p].remove();
+                                        });
+                                }
+                                website.remove();
+                            });
                     })
             });
     }
+
 };

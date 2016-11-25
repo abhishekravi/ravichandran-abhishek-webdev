@@ -13,7 +13,8 @@ module.exports = function () {
         updateImageURL: updateImageURL,
         deleteWidget: deleteWidget,
         reorderWidget: reorderWidget,
-        setModel: setModel
+        setModel: setModel,
+        cleanup: cleanup
     };
     return api;
 
@@ -246,5 +247,15 @@ module.exports = function () {
 
             });
         }
+    }
+
+    /**
+     * remove all widgets for a page.
+     * @param pid
+     * page id
+     * @returns {Promise}
+     */
+    function cleanup(pid){
+        return WidgetModel.remove({_page : pid});
     }
 };

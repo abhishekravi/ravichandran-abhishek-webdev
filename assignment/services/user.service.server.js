@@ -6,6 +6,13 @@ module.exports = function (app, model) {
     app.delete('/api/user/:uid', deleteUser);
 
 
+    /**
+     * method to find user.
+     * @param req
+     * request
+     * @param res
+     * response
+     */
     function findUser(req, res) {
         var query = req.query;
         if (query.password && query.username) {

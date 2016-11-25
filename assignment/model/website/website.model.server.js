@@ -4,6 +4,7 @@ module.exports = function () {
     var WebsiteSchema = require('./website.schema.server')();
     var WebsiteModel = mongoose.model("WebsiteModel", WebsiteSchema);
 
+    //website model apis.
     var api = {
         createWebsiteForUser: createWebsiteForUser,
         findAllWebsitesForUser: findAllWebsitesForUser,
@@ -14,10 +15,22 @@ module.exports = function () {
     };
     return api;
 
+    /**
+     * set master model.
+     * @param _model
+     */
     function setModel(_model){
         model = _model;
     }
 
+    /**
+     * create website for a user.
+     * @param userId
+     * user id
+     * @param website
+     * website object
+     * @returns {*|Promise}
+     */
     function createWebsiteForUser(userId, website) {
         return WebsiteModel.create(website)
             .then(function (webObj) {
@@ -33,16 +46,36 @@ module.exports = function () {
             });
     }
 
+    /**
+     * find websites for a user.
+     * @param userId
+     * user id
+     * @returns {Query|*|{}}
+     */
     function findAllWebsitesForUser(userId) {
         return WebsiteModel.find(
             {_user : userId}
         );
     }
 
+    /**
+     * find website by id.
+     * @param wid
+     * website id
+     * @returns {*}
+     */
     function findWebsiteById(wid) {
         return WebsiteModel.findById(wid);
     }
 
+    /**
+     * update a website.
+     * @param wid
+     * website id
+     * @param website
+     * website object
+     * @returns {Query|*}
+     */
     function updateWebsite(wid, website) {
         return WebsiteModel.update(
             {_id: wid},
@@ -54,6 +87,12 @@ module.exports = function () {
         );
     }
 
+    /**
+     * delete a website.
+     * @param wid
+     * website id
+     * @returns {*|Promise}
+     */
     function deleteWebsite(wid) {
         return findWebsiteById(wid)
             .then(function (website) {

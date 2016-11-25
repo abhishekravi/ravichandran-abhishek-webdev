@@ -37,7 +37,7 @@
                     vm.widget = widget;
                 })
                 .error(function (e) {
-
+                    console.log(e);
                 });
         }
 
@@ -47,15 +47,13 @@
          * method to update widget.
          */
         function updateWidget() {
-            if(vm.widget.width)
-                vm.widget.width = vm.widget.width + '%';
             var ret = WidgetService.updateWidget(vm.wgid, vm.widget);
             ret
                 .success(function (s) {
                     $location.url("/user/" + vm.uid + "/website/" + vm.wid + "/page/" + vm.pid + "/widget");
                 })
                 .error(function (e) {
-
+                    console.log(e);
                 });
         }
 
@@ -69,7 +67,7 @@
                     $location.url("/user/" + vm.uid + "/website/" + vm.wid + "/page/" + vm.pid + "/widget");
                 })
                 .error(function (e) {
-
+                    console.log(e);
                 });
         }
 

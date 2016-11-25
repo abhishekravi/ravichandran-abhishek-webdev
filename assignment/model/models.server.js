@@ -14,6 +14,7 @@ module.exports = function () {
     var pageModel = require("./page/page.model.server.js")();
     var widgetModel = require("./widget/widget.model.server.js")();
 
+    //master model object.
     var model =
     {
         userModel: userModel,
@@ -25,7 +26,6 @@ module.exports = function () {
     websiteModel.setModel(model);
     pageModel.setModel(model);
     widgetModel.setModel(model);
-
 
     return model;
 };

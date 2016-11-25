@@ -31,8 +31,8 @@
          * page id
          * @param widget
          * widget object
-         * @returns {*}
-         * widget object
+         * @returns
+         * response
          */
         function createWidget(pageId, widget) {
             var url = '/api/page/' + pageId + '/widget';
@@ -40,20 +40,11 @@
         }
 
         /**
-         * method to get new widget id.
-         * @returns {number}
-         * widget id
-         */
-        function getNewId() {
-            return parseInt(widgets[widgets.length - 1]._id) + 1;
-        }
-
-        /**
          * method to find widgets by page id.
          * @param pageId
          * page id
-         * @returns {Array}
-         * array of widgets
+         * @returns
+         * response
          */
         function findWidgetsByPageId(pageId) {
             var url = '/api/page/' + pageId + '/widget';
@@ -64,8 +55,8 @@
          * method to find widget by widget id.
          * @param widgetId
          * widget id
-         * @returns {*}
-         * widget object
+         * @returns
+         * response
          */
         function findWidgetById(widgetId) {
             var url = '/api/widget/' + widgetId;
@@ -90,7 +81,8 @@
          * widget id
          * @param imageUrl
          * image url
-         * @returns {*}
+         * @returns
+         * response
          */
         function updateImage(widgetId, imageUrl) {
             var url = '/api/widget/' + widgetId;
@@ -115,7 +107,8 @@
          * start index
          * @param end
          * changed index
-         * @returns {*}
+         * @returns
+         * response
          */
         function sort(pid, start, end) {
             var url = '/api/page/' + pid + '/widget?start=' + start + '&end=' + end;

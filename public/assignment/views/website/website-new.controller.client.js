@@ -25,7 +25,7 @@
             vm.websites = websites;
         })
             .error(function(e){
-
+                console.log(e);
             });
 
         /**
@@ -39,9 +39,8 @@
                 $location.url("/user/" + vm.uid + "/website");
             })
                 .error(function (e) {
-
+                    console.log(e);
                 });
-
         }
     }
 

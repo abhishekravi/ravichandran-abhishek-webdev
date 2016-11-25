@@ -23,11 +23,11 @@
         vm.updateWebsite = updateWebsite;
         vm.deleteWebsite = deleteWebsite;
         var ret = WebsiteService.findWebsitesByUser(vm.uid);
-        ret.success(function(websites){
+        ret.success(function (websites) {
             vm.websites = websites;
         })
-            .error(function(e){
-
+            .error(function (e) {
+                console.log(e);
             });
 
         /**
@@ -36,13 +36,14 @@
         function init() {
             var ret = WebsiteService.findWebsiteById(vm.websiteId);
             ret
-                .success(function(website){
+                .success(function (website) {
                     vm.website = website;
                 })
                 .error(function (e) {
-                    
+                    console.log(e);
                 });
         }
+
         init();
 
         /**
@@ -53,11 +54,11 @@
         function updateWebsite(website) {
             var ret = WebsiteService.updateWebsite(vm.websiteId, website);
             ret
-                .success(function(s){
+                .success(function (s) {
                     $location.url("/user/" + vm.uid + "/website");
                 })
                 .error(function (e) {
-
+                    console.log(e);
                 });
         }
 
@@ -67,11 +68,11 @@
         function deleteWebsite() {
             var ret = WebsiteService.deleteWebsite(vm.websiteId);
             ret
-                .success(function(s){
+                .success(function (s) {
                     $location.url("/user/" + vm.uid + "/website");
                 })
                 .error(function (e) {
-
+                    console.log(e);
                 });
         }
     }

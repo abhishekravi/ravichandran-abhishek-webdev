@@ -16,7 +16,7 @@
      * widget service
      * @constructor
      */
-    function NewWidgetController($location, $routeParams, WidgetService, $scope) {
+    function NewWidgetController($location, $routeParams, WidgetService) {
         var vm = this;
         vm.uid = $routeParams["uid"];
         vm.wid = $routeParams["wid"];
@@ -29,19 +29,21 @@
         if(WidgetService.imgURL) {
             vm.widget.url = WidgetService.imgURL;
             $('#imgurl').val(WidgetService.imgURL);
+            WidgetService.imgURL = "";
         }
 
+        /**
+         * method to create a widget.
+         */
         function createWidget(){
             vm.widget.type = vm.type;
-            if(vm.widget.width)
-                vm.widget.width = vm.widget.width + '%';
             var ret = WidgetService.createWidget(vm.pid, vm.widget);
             ret
                 .success(function (widget) {
                     $location.url("/user/" + vm.uid + "/website/" + vm.wid + "/page/" + vm.pid + "/widget");
                 })
                 .error(function (e) {
-                    
+                    console.log(e);
                 })
         }
 

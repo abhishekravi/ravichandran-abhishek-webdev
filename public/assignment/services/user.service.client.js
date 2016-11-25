@@ -26,8 +26,8 @@
          * creates new user.
          * @param user
          * user object
-         * @returns {*}
-         * user object
+         * @returns
+         * response
          */
         function createUser(user) {
            return $http.post('/api/user',user);
@@ -37,8 +37,8 @@
          * method to find user by userid.
          * @param userId
          * user id
-         * @returns {*}
-         * user object
+         * @returns
+         * response
          */
         function findUserById(userId) {
             var url = '/api/user/' + userId;
@@ -49,8 +49,8 @@
          * method to find user by username.
          * @param username
          * user name
-         * @returns {*}
-         * user object
+         * @returns
+         * response
          */
         function findUserByUsername(username) {
             var url = '/api/user?username='+username;
@@ -63,8 +63,8 @@
          * username
          * @param password
          * password
-         * @returns {*}
-         * user object
+         * @returns
+         * response
          */
         function findUserByCredentials(username, password) {
             var url = '/api/user?username='+username+'&password='+password;
@@ -82,7 +82,7 @@
 
         /**
          * method to delete user.
-         * @param userId
+         * @param uid
          * user id
          */
         function deleteUser(uid) {

@@ -34,7 +34,7 @@
                     vm.page = page;
                 })
                 .error(function (e) {
-                    
+                    console.log(e);
                 });
         }
         init();
@@ -51,7 +51,7 @@
                     $location.url("/user/" + vm.uid + "/website/" + vm.wid + "/page");
                 })
                 .error(function (e) {
-
+                    console.log(e);
                 });
 
         }
@@ -66,12 +66,11 @@
                     $location.url("/user/" + vm.uid + "/website/" + vm.wid + "/page");
                 })
                 .error(function (e) {
-
+                    console.log(e);
                 });
 
         }
 
     }
-
 
 })();

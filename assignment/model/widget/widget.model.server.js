@@ -4,6 +4,7 @@ module.exports = function () {
     var WidgetSchema = require('./widget.schema.server')();
     var WidgetModel = mongoose.model("WidgetModel", WidgetSchema);
 
+    //widget model apis.
     var api = {
         createWidget: createWidget,
         findAllWidgetsForPage: findAllWidgetsForPage,
@@ -16,10 +17,22 @@ module.exports = function () {
     };
     return api;
 
+    /**
+     * set master model.
+     * @param _model
+     */
     function setModel(_model) {
         model = _model;
     }
 
+    /**
+     * method to create a widget.
+     * @param pid
+     * page id
+     * @param widget
+     * widget object
+     * @returns {*|Promise}
+     */
     function createWidget(pid, widget) {
         return WidgetModel.create(widget)
             .then(function (widgetObj) {
@@ -37,16 +50,36 @@ module.exports = function () {
             });
     }
 
+    /**
+     * find all widgets for a page.
+     * @param pid
+     * page id
+     * @returns {Query|*|{}}
+     */
     function findAllWidgetsForPage(pid) {
         return WidgetModel.find(
             {_page: pid}
         );
     }
 
+    /**
+     * find widget by widget id.
+     * @param wgid
+     * widget id
+     * @returns {*}
+     */
     function findWidgetById(wgid) {
         return WidgetModel.findById(wgid);
     }
 
+    /**
+     * to update the image url of a image widget.
+     * @param wgid
+     * widget id
+     * @param url
+     * image url
+     * @returns {Query|*}
+     */
     function updateImageURL(wgid, url) {
         return WidgetModel.update(
             {_id: wgid},
@@ -55,6 +88,14 @@ module.exports = function () {
             });
     }
 
+    /**
+     * update a widget.
+     * @param wgid
+     * widget id
+     * @param widget
+     * widget object
+     * @returns {Query|*}
+     */
     function updateWidget(wgid, widget) {
         switch (widget.type) {
             case 'HTML':
@@ -62,14 +103,7 @@ module.exports = function () {
                     {_id: wgid},
                     {
                         name: widget.name,
-                        text: widget.text,
-                        description: widget.description,
-                        width: widget.width,
-                        height: widget.height,
-                        rows: widget.rows,
-                        class: widget.class,
-                        icon: widget.icon,
-                        formatted: widget.formatted
+                        text: widget.text
                     });
                 break;
             case 'TEXT':
@@ -79,12 +113,8 @@ module.exports = function () {
                         name: widget.name,
                         text: widget.text,
                         placeholder: widget.placeholder,
-                        description: widget.description,
-                        width: widget.width,
-                        height: widget.height,
                         rows: widget.rows,
                         class: widget.class,
-                        icon: widget.icon,
                         formatted: widget.formatted
                     });
                 break;
@@ -94,13 +124,7 @@ module.exports = function () {
                     {
                         name: widget.name,
                         text: widget.text,
-                        placeholder: widget.placeholder,
-                        description: widget.description,
-                        rows: widget.rows,
-                        size: widget.size,
-                        class: widget.class,
-                        icon: widget.icon,
-                        formatted: widget.formatted
+                        size: widget.size
                     });
                 break;
             case 'IMAGE':
@@ -109,15 +133,9 @@ module.exports = function () {
                     {
                         name: widget.name,
                         text: widget.text,
-                        placeholder: widget.placeholder,
-                        description: widget.description,
                         url: widget.url,
                         width: widget.width,
-                        height: widget.height,
-                        rows: widget.rows,
-                        class: widget.class,
-                        icon: widget.icon,
-                        formatted: widget.formatted
+                        height: widget.height
                     });
                 break;
             case 'YOUTUBE':
@@ -126,37 +144,19 @@ module.exports = function () {
                     {
                         name: widget.name,
                         text: widget.text,
-                        placeholder: widget.placeholder,
-                        description: widget.description,
                         url: widget.url,
-                        width: widget.width,
-                        height: widget.height,
-                        rows: widget.rows,
-                        class: widget.class,
-                        icon: widget.icon,
-                        formatted: widget.formatted
-                    });
-                break;
-            case 'INPUT':
-                return WidgetModel.update(
-                    {_id: wgid},
-                    {
-                        name: widget.name,
-                        text: widget.text,
-                        placeholder: widget.placeholder,
-                        description: widget.description,
-                        width: widget.width,
-                        height: widget.height,
-                        rows: widget.rows,
-                        size: widget.size,
-                        class: widget.class,
-                        icon: widget.icon,
-                        formatted: widget.formatted
+                        width: widget.width
                     });
                 break;
         }
     }
 
+    /**
+     * method to delete a widget.
+     * @param wgid
+     * widget id
+     * @returns {*|Promise}
+     */
     function deleteWidget(wgid) {
         return WidgetModel.findById(wgid)
             .then(function (widget) {
@@ -176,6 +176,7 @@ module.exports = function () {
                     widgets.sort(function (a, b) {
                         return a.pos - b.pos;
                     });
+                    //move all widgets below on position up.
                     for (var i = 0; i < widgets.length; i++) {
                         widgets[i].pos = widgets[i].pos - 1;
                         widgets[i].save();
@@ -190,7 +191,18 @@ module.exports = function () {
 
     }
 
+    /**
+     * method to store widget reorder positions.
+     * @param pid
+     * page id
+     * @param start
+     * initial position of widget
+     * @param end
+     * final position of widget
+     * @returns {Promise}
+     */
     function reorderWidget(pid, start, end) {
+        //if widget is moved from top to bottom
         if (end > start) {
             return WidgetModel.find(
                 {
@@ -211,7 +223,9 @@ module.exports = function () {
                 }
 
             });
-        } else {
+        }
+        //if widget is moved from bottom to top
+        else {
             return WidgetModel.find(
                 {
                     _page: pid,
@@ -232,6 +246,5 @@ module.exports = function () {
 
             });
         }
-
     }
 };

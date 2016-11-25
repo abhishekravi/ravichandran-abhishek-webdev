@@ -13,15 +13,6 @@
      */
     function WebsiteService($http) {
 
-        /**
-         * method to get next website id.
-         * @returns {number}
-         * wensite id
-         */
-        function getNewId(){
-            return parseInt(websites[websites.length - 1]._id) + 1;
-        }
-
         var api = {
             "createWebsite": createWebsite,
             "findWebsitesByUser": findWebsitesByUser,
@@ -49,8 +40,8 @@
          * method to find websites by userid.
          * @param userId
          * user id
-         * @returns {Array}
-         * array of websites
+         * @returns
+         * response
          */
         function findWebsitesByUser(userId) {
             var url = '/api/'+ userId + '/website';
@@ -61,8 +52,8 @@
          * method to find website by website id.
          * @param websiteId
          * website id
-         * @returns {*}
-         * website object
+         * @returns
+         * response
          */
         function findWebsiteById(websiteId) {
             var url = '/api/website/' + websiteId;

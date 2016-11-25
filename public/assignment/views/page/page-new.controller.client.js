@@ -34,11 +34,9 @@
                     $location.url("/user/" + vm.uid + "/website/" + vm.wid + "/page");
                 })
                 .error(function (e) {
-
+                    console.log(e);
                 })
 
         }
     }
-
-
 })();

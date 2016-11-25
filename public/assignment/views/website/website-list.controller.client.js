@@ -27,7 +27,7 @@
             ret.success(function(websites){
                 vm.websites = websites;
             }).error(function (e) {
-                
+                console.log(e);
             });
         }
 

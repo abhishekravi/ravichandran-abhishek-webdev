@@ -1,3 +1,4 @@
+//website schema.
 module.exports = function () {
     var mongoose = require("mongoose");
     var WebsiteSchema = mongoose.Schema({

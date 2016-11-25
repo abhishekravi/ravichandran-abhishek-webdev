@@ -33,7 +33,7 @@
                     vm.widgets = widgets;
                 })
                 .error(function (e) {
-
+                    console.log(e);
                 });
         }
         init();

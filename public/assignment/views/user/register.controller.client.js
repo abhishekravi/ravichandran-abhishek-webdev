@@ -29,7 +29,7 @@
                     $location.url("/user/" + user._id);
                 })
                 .error(function(error){
-
+                    console.log(error);
                 });
 
         }

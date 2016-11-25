@@ -1,4 +1,6 @@
-
+/**
+ * route config for application.
+ */
 (function() {
     angular
         .module("WebAppMaker")

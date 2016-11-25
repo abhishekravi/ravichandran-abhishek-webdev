@@ -24,7 +24,7 @@
                 vm.pages = pages;
             })
             .error(function (e) {
-
+                console.log(e);
             });
     }
 

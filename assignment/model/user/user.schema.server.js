@@ -1,3 +1,4 @@
+//user schema
 module.exports = function () {
     var mongoose = require("mongoose");
     var UserSchema = mongoose.Schema({

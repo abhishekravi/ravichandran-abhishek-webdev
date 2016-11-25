@@ -28,25 +28,31 @@
                 .success(function(user){
                     vm.user = user;
                 })
-                .error(function(user){
-
+                .error(function(e){
+                    console.log(e);
                 });
 
         }
 
         init();
 
+        /**
+         * method to update user.
+         */
         function updateUser(){
             UserService.updateUser(vm.user);
         }
 
+        /**
+         * method to delete the user.
+         */
         function deleteUser(){
             UserService.deleteUser(vm.userId)
                 .success(function(){
                     $location.url("/login");
                 })
-                .error(function(){
-
+                .error(function(e){
+                    console.log(e);
                 });
 
         }

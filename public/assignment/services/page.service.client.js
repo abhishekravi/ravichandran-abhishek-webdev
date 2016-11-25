@@ -35,20 +35,11 @@
         }
 
         /**
-         * method to get the next page id.
-         * @returns {number}
-         * page id
-         */
-        function getNewId() {
-            return parseInt(pages[pages.length - 1]._id) + 1;
-        }
-
-        /**
          * method to find all pages in a website.
          * @param websiteId
          * wensite id
-         * @returns {Array}
-         * array of pages
+         * @returns
+         * response
          */
         function findPageByWebsiteId(websiteId) {
             var url = '/api/website/' + websiteId + '/page';
@@ -59,8 +50,8 @@
          * method to find a page by its id.
          * @param pageId
          * page id
-         * @returns {*}
-         * page object
+         * @returns
+         * response
          */
         function findPageById(pageId) {
             var url = '/api/page/' + pageId;

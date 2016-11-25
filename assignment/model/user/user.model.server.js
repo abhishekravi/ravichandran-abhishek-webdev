@@ -3,7 +3,7 @@ module.exports = function () {
     var mongoose = require("mongoose");
     var UserSchema = require('./user.schema.server')();
     var UserModel = mongoose.model("UserModel", UserSchema);
-
+    // user model apis.
     var api = {
         createUser: createUser,
         findUserById: findUserById,
@@ -15,18 +15,42 @@ module.exports = function () {
     };
     return api;
 
-    function setModel(_model){
+    /**
+     * to set master model.
+     * @param _model
+     */
+    function setModel(_model) {
         model = _model;
     }
 
+    /**
+     * to create a user
+     * @param user
+     * user object
+     * @returns {user}
+     */
     function createUser(user) {
         return UserModel.create(user);
     }
 
+    /**
+     * to find user by id.
+     * @param id
+     * user id
+     * @returns {*}
+     */
     function findUserById(id) {
         return UserModel.findById(id);
     }
 
+    /**
+     * update a user.
+     * @param uid
+     * user id
+     * @param user
+     * user object
+     * @returns {Query|*}
+     */
     function updateUser(uid, user) {
         return UserModel.update(
             {_id: uid},
@@ -39,6 +63,14 @@ module.exports = function () {
         );
     }
 
+    /**
+     * find user by credentials.
+     * @param username
+     * username
+     * @param password
+     * password
+     * @returns {*|Query}
+     */
     function findUserByCredentials(username, password) {
         return UserModel.findOne(
             {
@@ -47,6 +79,11 @@ module.exports = function () {
             });
     }
 
+    /**
+     * find user by username.
+     * @param username
+     * @returns {*|Query}
+     */
     function findUserByUsername(username) {
         return UserModel.findOne(
             {
@@ -55,11 +92,19 @@ module.exports = function () {
         );
     }
 
+    /**
+     * delete a user
+     * @param uid
+     * user id
+     * @returns {Promise}
+     */
     function deleteUser(uid) {
-        return UserModel.remove(
+        return UserModel.findOne(
             {
                 _id: uid
-            }
-        );
+            },
+            function (err,user) {
+                user.remove();
+            });
     }
 };

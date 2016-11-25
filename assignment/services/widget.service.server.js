@@ -23,6 +23,7 @@ module.exports = function (app, model) {
         var maxPos = 0;
         model.widgetModel.findAllWidgetsForPage(req.params.pid)
             .then(function (widgets) {
+                    //get the max position and increment it for the new object.
                     if (widgets.length == 0)
                         widget.pos = 0;
                     else {
@@ -90,7 +91,7 @@ module.exports = function (app, model) {
     function updateWidgetReq(req, res) {
         var widgetId = req.params.wgid;
         var widget = req.body;
-        if (widget.rows) {
+        if (widget.pos) {
             model.widgetModel.updateWidget(widgetId, widget)
                 .then(function (w) {
                     res.sendStatus(200);

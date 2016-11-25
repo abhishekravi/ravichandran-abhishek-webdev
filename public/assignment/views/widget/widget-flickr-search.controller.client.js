@@ -18,7 +18,7 @@
      * widget service
      * @constructor
      */
-    function FlickrWidgetController($location, $routeParams, FlickrService, WidgetService, $scope) {
+    function FlickrWidgetController($location, $routeParams, FlickrService, WidgetService) {
 
         var vm = this;
         vm.uid = $routeParams["uid"];
@@ -39,6 +39,8 @@
                     data = data.substring(0, data.length - 1);
                     data = JSON.parse(data);
                     vm.photos = data.photos;
+                },function (e) {
+                    console.log(e);
                 });
         }
 

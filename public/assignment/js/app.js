@@ -1,4 +1,4 @@
 (function() {
     angular
-        .module("WebAppMaker", ["ngRoute","divSortableDir"])
+        .module("WebAppMaker", ["ngRoute","divSortableDir","textAngular"])
 })();

@@ -18,7 +18,7 @@
      * widget service
      * @constructor
      */
-    function FlickrWidgetController($location, $routeParams, FlickrService, WidgetService) {
+    function FlickrWidgetController($location, $routeParams, FlickrService, WidgetService, $scope) {
 
         var vm = this;
         vm.uid = $routeParams["uid"];
@@ -50,11 +50,15 @@
         function selectPhoto(photo) {
             var url = "https://farm" + photo.farm + ".staticflickr.com/" + photo.server;
             url += "/" + photo.id + "_" + photo.secret + "_b.jpg";
-
-            var ret = WidgetService.updateImage(vm.wgid, url);
-            ret.success(function (response) {
-                $location.url("/user/" + vm.uid + "/website/" + vm.wid + "/page/" + vm.pid + "/widget/" + vm.wgid);
-            });
+            if (vm.wgid) {
+                var ret = WidgetService.updateImage(vm.wgid, url);
+                ret.success(function (response) {
+                    $location.url("/user/" + vm.uid + "/website/" + vm.wid + "/page/" + vm.pid + "/widget/" + vm.wgid);
+                });
+            }else {
+                WidgetService.imgURL = url;
+                $location.url("/user/" + vm.uid + "/website/" + vm.wid + "/page/" + vm.pid + "/widget/new/IMAGE");
+            }
 
         }
     }

@@ -20,7 +20,8 @@
             "updateWidget": updateWidget,
             "deleteWidget": deleteWidget,
             "updateImage": updateImage,
-            "sort": sort
+            "sort": sort,
+            imgURL : ''
         };
         return api;
 

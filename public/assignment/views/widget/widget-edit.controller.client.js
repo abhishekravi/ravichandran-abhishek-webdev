@@ -86,6 +86,7 @@
                 type: 'POST',
                 success: function (data) {
                     vm.widget.url = 'uploads/' + data.filename;
+                    $('#imgurl').val('uploads/' + data.filename);
                     $('#imgUp').removeClass('has-error');
                     $('#imgUp').find('span').removeClass('glyphicon-remove');
                     $('#imgUp').addClass('has-success');

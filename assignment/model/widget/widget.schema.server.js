@@ -7,7 +7,7 @@ module.exports = function () {
         },
         type: {
                 type: String,
-                enum: ['HEADING', 'IMAGE', 'YOUTUBE', 'HTML', 'INPUT']
+                enum: ['HEADER', 'IMAGE', 'YOUTUBE', 'HTML', 'INPUT', 'TEXT']
             },
         name: {type: String},
         text: {type: String},
@@ -18,11 +18,11 @@ module.exports = function () {
         height: {type: String},
         rows: {type: Number},
         size: {type: Number},
+        pos: {type: Number},
         class: {type: String},
         icon: {type: String},
         deletable: {type: Boolean},
         formatted: {type: Boolean},
-        pos: {type: Number},
         dateCreated: {type: Date, default: Date.now()}
     }, {collection: "widget"});
     return WidgetSchema;

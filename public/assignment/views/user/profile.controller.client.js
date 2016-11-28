@@ -19,6 +19,7 @@
         vm.userId = $routeParams["uid"];
         vm.updateUser = updateUser;
         vm.deleteUser = deleteUser;
+        vm.logout = logout;
         /**
          * to initializr profile page.
          */
@@ -55,6 +56,13 @@
                     console.log(e);
                 });
 
+        }
+        
+        function logout() {
+            UserService.logout()
+                .success(function () {
+                    $location.url("/login");
+                })
         }
     }
 

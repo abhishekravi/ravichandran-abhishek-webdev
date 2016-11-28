@@ -18,10 +18,25 @@
             "findUserByUsername": findUserByUsername,
             "findUserByCredentials": findUserByCredentials,
             "updateUser": updateUser,
-            "deleteUser": deleteUser
+            "deleteUser": deleteUser,
+            "login" : login,
+            checkLogin: checkLogin,
+            logout: logout
         };
         return api;
 
+        function login(username, password){
+            var user = {username:username, password: password};
+            return $http.post('/api/login',user);
+        }
+
+        function checkLogin(){
+            return $http.post('/api/checkLogin');
+        }
+        
+        function logout() {
+            return $http.post('/api/logout');
+        }
         /**
          * creates new user.
          * @param user

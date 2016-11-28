@@ -29,7 +29,8 @@
                     vm.alert = "Enter credentials to login";
                 } else {
 
-                    var ret = UserService.findUserByCredentials(user.username, user.password);
+                    //var ret = UserService.findUserByCredentials(user.username, user.password);
+                    var ret = UserService.login(user.username, user.password);
                     ret
                         .success(function (user) {
                             if (user != '0') {

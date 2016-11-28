@@ -1,10 +1,79 @@
 module.exports = function (app, model) {
+
+    var passport = require('passport');
+    var cookieParser = require('cookie-parser');
+    var session      = require('express-session');
+    var LocalStrategy = require('passport-local').Strategy;
+    app.use(session({
+        //use env variable
+        secret: 'this is the secret',
+        resave: true,
+        saveUninitialized: true
+    }));
+
+    app.use(cookieParser());
+    app.use(passport.initialize());
+    app.use(passport.session());
+    passport.use(new LocalStrategy(localStrategy));
+    passport.serializeUser(serializeUser);
+    passport.deserializeUser(deserializeUser);
+
     app.get('/api/user', findUser);
     app.get('/api/user/:uid', findUserById);
     app.post('/api/user', createUser);
     app.put('/api/user/:uid', updateUser);
     app.delete('/api/user/:uid', deleteUser);
+    app.post('/api/login', passport.authenticate('local'), login);
+    app.post('/api/checkLogin',checkLogin);
+    app.post('/api/logout',logout);
 
+    function checkLogin(req, res){
+        res.send(req.isAuthenticated() ? req.user : '0');
+    }
+
+    function login(req, res){
+        var user = req.user;
+        res.json(user);
+    }
+
+    function logout(req, res) {
+        req.logout();
+        res.sendStatus(200);
+    }
+
+    function localStrategy(username, password, done) {
+        model.userModel
+            .findUserByCredentials(username, password)
+            .then(
+                function(user) {
+                    if(user.username === username && user.password === password) {
+                        return done(null, user);
+                    } else {
+                        return done(null, '0');
+                    }
+                },
+                function(err) {
+                    if (err) { return done(err); }
+                }
+            );
+    }
+
+    function serializeUser(user, done) {
+        done(null, user);
+    }
+
+    function deserializeUser(user, done) {
+        model.userModel
+            .findUserById(user._id)
+            .then(
+                function(user){
+                    done(null, user);
+                },
+                function(err){
+                    done(err, null);
+                }
+            );
+    }
 
     /**
      * method to find user.

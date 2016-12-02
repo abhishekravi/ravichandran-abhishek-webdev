@@ -16,7 +16,7 @@
      */
     function ProfileController($location, $routeParams, UserService) {
         var vm = this;
-        vm.userId = $routeParams["uid"];
+        //vm.userId = $routeParams["uid"];
         vm.updateUser = updateUser;
         vm.deleteUser = deleteUser;
         vm.logout = logout;
@@ -24,7 +24,8 @@
          * to initializr profile page.
          */
         function init() {
-             var ret = UserService.findUserById(vm.userId);
+             //var ret = UserService.findUserById(vm.userId);
+            var ret = UserService.findCurrentUser();
             ret
                 .success(function(user){
                     vm.user = user;
@@ -48,7 +49,7 @@
          * method to delete the user.
          */
         function deleteUser(){
-            UserService.deleteUser(vm.userId)
+            UserService.deleteUser(vm.user._id)
                 .success(function(){
                     $location.url("/login");
                 })

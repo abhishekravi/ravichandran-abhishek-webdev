@@ -1,4 +1,4 @@
-<div class="container" >
+<div class="container-fluid" >
     <h1>Login</h1>
     <form>
         <div class="form-group">
@@ -13,6 +13,10 @@
         </div>
         <a class="btn btn-primary btn-block"
            ng-click="model.login(model.user)">Login</a>
+        <a href="/auth/google" class="btn btn-danger btn-block">
+            <span class="fa fa-google-plus"></span>
+            Google
+        </a>
         <a class="btn btn-success btn-block"
            href="#/register">Register</a>
         <span class="label label-danger">{{model.alert}}</span>

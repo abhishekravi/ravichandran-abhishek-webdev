@@ -26,7 +26,7 @@
         function register(user) {
             user = UserService.createUser(user)
                 .success(function(user){
-                    $location.url("/user/" + user._id);
+                    $location.url("/user");
                 })
                 .error(function(error){
                     console.log(error);

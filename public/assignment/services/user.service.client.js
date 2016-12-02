@@ -21,7 +21,8 @@
             "deleteUser": deleteUser,
             "login" : login,
             checkLogin: checkLogin,
-            logout: logout
+            logout: logout,
+            findCurrentUser: findCurrentUser
         };
         return api;
 
@@ -45,7 +46,7 @@
          * response
          */
         function createUser(user) {
-           return $http.post('/api/user',user);
+           return $http.post('/api/register',user);
         }
 
         /**
@@ -57,6 +58,11 @@
          */
         function findUserById(userId) {
             var url = '/api/user/' + userId;
+            return $http.get(url);
+        }
+
+        function findCurrentUser(){
+            var url = '/api/user';
             return $http.get(url);
         }
 

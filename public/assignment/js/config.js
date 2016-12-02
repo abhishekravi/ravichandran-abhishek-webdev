@@ -30,6 +30,14 @@
                     checkLogin: checkLogin
                 }
             })
+            .when("/user", {
+                templateUrl: "/assignment/views/user/profile.view.client.html",
+                controller: "ProfileController",
+                controllerAs: "model",
+                resolve: {
+                    checkLogin: checkLogin
+                }
+            })
             .when("/user/:uid/website", {
                 templateUrl: "/assignment/views/website/website-list.view.client.html",
                 controller: "WebsiteListController",

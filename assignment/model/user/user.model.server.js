@@ -11,7 +11,9 @@ module.exports = function () {
         findUserByCredentials: findUserByCredentials,
         findUserByUsername: findUserByUsername,
         deleteUser: deleteUser,
-        setModel: setModel
+        setModel: setModel,
+        findUserByGoogleId: findUserByGoogleId,
+        findUserByFacebookId: findUserByFacebookId
     };
     return api;
 
@@ -43,6 +45,22 @@ module.exports = function () {
         return UserModel.findById(id);
     }
 
+    function findUserByFacebookId(id) {
+        return UserModel.findOne(
+            {
+                'facebook.id': id
+            }
+        );
+    }
+
+    function findUserByGoogleId(id) {
+        return UserModel.findOne(
+            {
+                'google.id': id
+            }
+        );
+    }
+
     /**
      * update a user.
      * @param uid
@@ -55,6 +73,7 @@ module.exports = function () {
         return UserModel.update(
             {_id: uid},
             {
+                username: user.username,
                 firstName: user.firstName,
                 lastName: user.lastName,
                 email: user.email,
@@ -100,14 +119,14 @@ module.exports = function () {
      */
     function deleteUser(uid) {
         return UserModel.findOne(
-            {_id:uid},
-            function (err,user) {
+            {_id: uid},
+            function (err, user) {
                 return model.websiteModel.findAllWebsitesForUser(uid)
                     .then(function (websites) {
-                        for(w in websites){
+                        for (w in websites) {
                             model.pageModel.findAllPagesForWebsite(websites[w]._id)
                                 .then(function (pages) {
-                                    for(p in pages){
+                                    for (p in pages) {
                                         model.widgetModel.cleanup(pages[p]._id)
                                             .then(function () {
                                                 pages[p].remove();

@@ -52,14 +52,19 @@
          * website object
          */
         function updateWebsite(website) {
-            var ret = WebsiteService.updateWebsite(vm.websiteId, website);
-            ret
-                .success(function (s) {
-                    $location.url("/user/" + vm.uid + "/website");
-                })
-                .error(function (e) {
-                    console.log(e);
-                });
+            if(!website || !website.name || website.name == ''){
+                $('#editWebAlert').removeClass('hidden');
+                vm.alert = 'name required';
+            } else {
+                var ret = WebsiteService.updateWebsite(vm.websiteId, website);
+                ret
+                    .success(function (s) {
+                        $location.url("/user/" + vm.uid + "/website");
+                    })
+                    .error(function (e) {
+                        console.log(e);
+                    });
+            }
         }
 
         /**

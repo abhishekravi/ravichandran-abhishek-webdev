@@ -16,6 +16,9 @@
 
 <div class="container">
     <form>
+        <div id="newPageAlert" class="alert alert-danger hidden">
+            {{model.alert}}
+        </div>
         <div class="form-group">
             <label for="pagename">Name</label>
             <input type="text" id="pagename" class="form-control" ng-model="model.page.name"
@@ -27,6 +30,7 @@
                    placeholder="Page Title"/>
         </div>
     </form>
+
 </div>
 
 <nav class="navbar navbar-default navbar-fixed-bottom nav-height">

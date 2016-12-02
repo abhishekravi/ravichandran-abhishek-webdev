@@ -1,16 +1,14 @@
-<div class="container">
-    <form>
-        <div class="form-group">
-            <label for="widgetname">Name</label>
-            <input type="text" id="widgetname" class="form-control" ng-model="model.widget.name"
-                   placeholder="Widget Name" value="Widget name"/>
-        </div>
-        <div ng-model="model.widget.text"
-             text-angular ta-toolbar="[['h1','h2','h3'],['bold','italics','underline','strikeThrough'],
+<form>
+    <div class="form-group">
+        <label for="widgetname">Name</label>
+        <input type="text" id="widgetname" class="form-control" ng-model="model.widget.name"
+               placeholder="Widget Name" value="Widget name"/>
+    </div>
+    <div ng-model="model.widget.text"
+         text-angular ta-toolbar="[['h1','h2','h3'],['bold','italics','underline','strikeThrough'],
         ['ul','ol'],['justifyLeft','justifyCenter','justifyRight','justifyFull'],
         ['indent','outdent'],['html']]">
-        </div>
+    </div>
 
-        <a ng-click="model.deleteWidget()" class="btn btn-danger form-control">Delete</a>
-    </form>
-</div>
+    <a ng-click="model.deleteWidget()" class="btn btn-danger form-control">Delete</a>
+</form>

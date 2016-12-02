@@ -34,13 +34,18 @@
          * website object
          */
         function createWebsite(website) {
-            var ret = WebsiteService.createWebsite(vm.uid, website);
-            ret.success(function (s) {
-                $location.url("/user/" + vm.uid + "/website");
-            })
-                .error(function (e) {
-                    console.log(e);
-                });
+            if(!website || !website.name || website.name == ''){
+                $('#newWebAlert').removeClass('hidden');
+                vm.alert = 'name required';
+            } else {
+                var ret = WebsiteService.createWebsite(vm.uid, website);
+                ret.success(function (s) {
+                    $location.url("/user/" + vm.uid + "/website");
+                })
+                    .error(function (e) {
+                        console.log(e);
+                    });
+            }
         }
     }
 

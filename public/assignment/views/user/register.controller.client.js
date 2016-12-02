@@ -24,13 +24,22 @@
          * user object
          */
         function register(user) {
-            user = UserService.createUser(user)
-                .success(function(user){
-                    $location.url("/user");
-                })
-                .error(function(error){
-                    console.log(error);
-                });
+            if (!user || user.username == '' || !user.password || user.password == '') {
+                $('#registerAlert').removeClass('hidden');
+                vm.alert = 'Please enter the required details';
+            } else if (user.password != user.vpassword) {
+                $('#registerAlert').removeClass('hidden');
+                vm.alert = 'Password does not match';
+            } else {
+                $('#registerAlert').addClass('hidden');
+                user = UserService.createUser(user)
+                    .success(function (user) {
+                        $location.url("/user");
+                    })
+                    .error(function (error) {
+                        console.log(error);
+                    });
+            }
 
         }
     }

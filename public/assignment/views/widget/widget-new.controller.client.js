@@ -36,15 +36,20 @@
          * method to create a widget.
          */
         function createWidget(){
-            vm.widget.type = vm.type;
-            var ret = WidgetService.createWidget(vm.pid, vm.widget);
-            ret
-                .success(function (widget) {
-                    $location.url("/user/" + vm.uid + "/website/" + vm.wid + "/page/" + vm.pid + "/widget");
-                })
-                .error(function (e) {
-                    console.log(e);
-                })
+            if(!vm.widget || !vm.widget.name || vm.widget.name == ''){
+                $('#newWidgetAlert').removeClass('hidden');
+                vm.alert = 'name required';
+            } else {
+                vm.widget.type = vm.type;
+                var ret = WidgetService.createWidget(vm.pid, vm.widget);
+                ret
+                    .success(function (widget) {
+                        $location.url("/user/" + vm.uid + "/website/" + vm.wid + "/page/" + vm.pid + "/widget");
+                    })
+                    .error(function (e) {
+                        console.log(e);
+                    });
+            }
         }
 
         /**

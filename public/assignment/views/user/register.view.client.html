@@ -1,4 +1,7 @@
 <div class="container">
+    <div id="registerAlert" class="alert alert-danger hidden">
+        {{model.alert}}
+    </div>
     <h1>Register</h1>
     <input type="text" ng-model="model.user.username"
            class="form-control"
@@ -9,6 +12,7 @@
     <input type="password" ng-model="model.user.vpassword"
            class="form-control"
            placeholder="verify password"/>
+
     <a class="btn btn-primary btn-block"
        ng-click="model.register(model.user)">Register</a>
     <a class="btn btn-danger  btn-block"

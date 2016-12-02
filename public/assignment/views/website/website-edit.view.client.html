@@ -20,6 +20,9 @@
 
     <div class="container-fluid">
         <div class="row">
+            <div id="editWebAlert" class="alert alert-danger hidden container-fluid">
+                {{model.alert}}
+            </div>
             Name
             <input placeholder="Name" class="form-control" ng-model="model.website.name">
             Description
@@ -27,6 +30,7 @@
                       ng-model="model.website.description"> </textarea>
             <br>
             <a class="btn btn-danger btn-block form-control" ng-click="model.deleteWebsite()">Delete</a>
+
         </div>
 
     </div>

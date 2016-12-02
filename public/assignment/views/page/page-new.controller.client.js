@@ -28,14 +28,19 @@
          * page object
          */
         function createNewPage(page) {
-            var ret = PageService.createPage(vm.wid, page);
-            ret
-                .success(function (s) {
-                    $location.url("/user/" + vm.uid + "/website/" + vm.wid + "/page");
-                })
-                .error(function (e) {
-                    console.log(e);
-                })
+            if(!page || !page.name || page.name == ''){
+                $('#newPageAlert').removeClass('hidden');
+                vm.alert = 'name required';
+            } else {
+                var ret = PageService.createPage(vm.wid, page);
+                ret
+                    .success(function (s) {
+                        $location.url("/user/" + vm.uid + "/website/" + vm.wid + "/page");
+                    })
+                    .error(function (e) {
+                        console.log(e);
+                    });
+            }
 
         }
     }

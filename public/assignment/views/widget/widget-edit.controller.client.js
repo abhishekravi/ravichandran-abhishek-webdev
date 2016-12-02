@@ -47,14 +47,19 @@
          * method to update widget.
          */
         function updateWidget() {
-            var ret = WidgetService.updateWidget(vm.wgid, vm.widget);
-            ret
-                .success(function (s) {
-                    $location.url("/user/" + vm.uid + "/website/" + vm.wid + "/page/" + vm.pid + "/widget");
-                })
-                .error(function (e) {
-                    console.log(e);
-                });
+            if(!vm.widget || !vm.widget.name || vm.widget.name == ''){
+                $('#editWidgetAlert').removeClass('hidden');
+                vm.alert = 'name required';
+            } else {
+                var ret = WidgetService.updateWidget(vm.wgid, vm.widget);
+                ret
+                    .success(function (s) {
+                        $location.url("/user/" + vm.uid + "/website/" + vm.wid + "/page/" + vm.pid + "/widget");
+                    })
+                    .error(function (e) {
+                        console.log(e);
+                    });
+            }
         }
 
         /**

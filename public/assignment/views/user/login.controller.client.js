@@ -25,10 +25,11 @@
          */
         function login(user) {
             if (user) {
-                if (user.username == '') {
+                if (user.username == '' || user.password == '') {
+                    $('#loginAlert').removeClass('hidden');
                     vm.alert = "Enter credentials to login";
                 } else {
-
+                    $('#loginAlert').addClass('hidden');
                     //var ret = UserService.findUserByCredentials(user.username, user.password);
                     var ret = UserService.login(user.username, user.password);
                     ret
@@ -36,6 +37,7 @@
                             if (user != '0') {
                                 $location.url("/user/" + user._id);
                             } else {
+                                $('#loginAlert').removeClass('hidden');
                                 vm.alert = "Unable to login. Invalid username/password";
                             }
                         })
@@ -44,6 +46,7 @@
                         });
                 }
             } else {
+                $('#loginAlert').removeClass('hidden');
                 vm.alert = "Enter credentials to login";
             }
         }

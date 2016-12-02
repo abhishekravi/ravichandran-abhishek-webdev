@@ -8,11 +8,13 @@ module.exports = function (app, model) {
     var FacebookStrategy = require('passport-facebook').Strategy;
     var bcrypt = require("bcrypt-nodejs");
 
+    //google authentication configuration
     var googleConfig = {
         clientID: process.env.GOOGLE_CLIENT_ID,
         clientSecret: process.env.GOOGLE_CLIENT_SECRET,
         callbackURL: process.env.GOOGLE_CALLBACK_URL
     };
+    //facebook authentication configuration
     var facebookConfig = {
         clientID: process.env.FACEBOOK_CLIENT_ID,
         clientSecret: process.env.FACEBOOK_CLIENT_SECRET,
@@ -56,20 +58,41 @@ module.exports = function (app, model) {
         }));
 
 
+    /**
+     * method to check if user is logged in.
+     * @param req
+     * @param res
+     */
     function checkLogin(req, res) {
         res.send(req.isAuthenticated() ? req.user : '0');
     }
 
+    /**
+     * method to login the user and get the user object.
+     * @param req
+     * @param res
+     */
     function login(req, res) {
         var user = req.user;
         res.json(user);
     }
 
+    /**
+     * method to logout.
+     * @param req
+     * @param res
+     */
     function logout(req, res) {
         req.logout();
         res.sendStatus(200);
     }
 
+    /**
+     * method to login using local database.
+     * @param username
+     * @param password
+     * @param done
+     */
     function localStrategy(username, password, done) {
         model.userModel
             .findUserByUsername(username)
@@ -90,6 +113,13 @@ module.exports = function (app, model) {
             );
     }
 
+    /**
+     * method to login using google authentication.
+     * @param token
+     * @param refreshToken
+     * @param profile
+     * @param done
+     */
     function googleStrategy(token, refreshToken, profile, done) {
         model.userModel
             .findUserByGoogleId(profile.id)
@@ -131,6 +161,13 @@ module.exports = function (app, model) {
             );
     }
 
+    /**
+     * method to login using facebook authentication.
+     * @param token
+     * @param refreshToken
+     * @param profile
+     * @param done
+     */
     function facebookStrategy(token, refreshToken, profile, done) {
         model.userModel
             .findUserByFacebookId(profile.id)
@@ -183,10 +220,20 @@ module.exports = function (app, model) {
             );
     }
 
+    /**
+     * to serialize object and pass it to client.
+     * @param user
+     * @param done
+     */
     function serializeUser(user, done) {
         done(null, user);
     }
 
+    /**
+     * to get object when needed.
+     * @param user
+     * @param done
+     */
     function deserializeUser(user, done) {
         model.userModel
             .findUserById(user._id)
@@ -324,6 +371,12 @@ module.exports = function (app, model) {
     }
 
 
+    /**
+     * method to check if the user id matches the user id of the currently logged in user.
+     * @param req
+     * @param res
+     * @param next
+     */
     function correctUserCheck(req, res, next) {
         var loggedIn = req.isAuthenticated();
         var sameUser = req.params.uid == req.user._id;

@@ -45,6 +45,11 @@ module.exports = function () {
         return UserModel.findById(id);
     }
 
+    /**
+     * find user by facebook id.
+     * @param id
+     * @returns {*|Query}
+     */
     function findUserByFacebookId(id) {
         return UserModel.findOne(
             {
@@ -53,6 +58,11 @@ module.exports = function () {
         );
     }
 
+    /**
+     * find user by google id.
+     * @param id
+     * @returns {*|Query}
+     */
     function findUserByGoogleId(id) {
         return UserModel.findOne(
             {

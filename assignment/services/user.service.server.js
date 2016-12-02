@@ -20,7 +20,7 @@ module.exports = function (app, model) {
     };
     app.use(session({
         //use env variable
-        secret: 'this is the secret',
+        secret: process.env.SESSION_SECRET,
         resave: true,
         saveUninitialized: true
     }));

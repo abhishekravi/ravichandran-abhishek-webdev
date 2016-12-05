@@ -32,7 +32,8 @@
     "passport-google": "^0.3.0",
     "passport-google-oauth": "^1.0.0",
     "passport-local": "^1.0.0",
-    "request": "^2.75.0",
-    "textangular": "^1.5.13"
+    "request": "^2.79.0",
+    "textangular": "^1.5.13",
+    "unirest": "^0.5.1"
   }
 }

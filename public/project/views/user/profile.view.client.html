@@ -1,20 +1,5 @@
-<nav class="navbar navbar-fixed-top bg-primary">
-    <div class="container-fluid">
-        <div class="navbar-header-fixed">
-
-            <a class="navbar-brand bg-primary" href="#">Profile </a>
-        </div>
-        <p class="navbar-text pull-right text-primary">
-            <a class="bg-primary pull-right">
-                            <span class="glyphicon glyphicon-ok">
-                            </span>
-            </a>
-        </p>
-    </div>
-</nav>
-
+<div ng-include="'views/user/navBar.view.client.html'"></div>
 <div class="container">
-
     <form>
         <div class="form-group">
             <label for="username">Username</label>
@@ -32,18 +17,10 @@
             <label for="last-name">Last Name</label>
             <input type="text" class="form-control" id="last-name" placeholder="Last Name" ng-model="model.user.lastName">
         </div>
+        <a ng-click="model.updateUser()" class="btn btn-success  btn-block">Update</a>
+        <a ng-click="model.deleteUser()" class="btn btn-warning  btn-block">Unregister</a>
+        <div id="profileMessage" class="alert alert-success hidden">
+            {{model.message}}
+        </div>
     </form>
-
-    <a class="btn btn-primary btn-block"
-       href="#/user/{{model.user._id}}/website">Websites</a>
-    <a class="btn btn-danger  btn-block"
-       href="#/login">Logout</a>
 </div>
-
-
-<nav class="navbar navbar-fixed-bottom bg-primary nav-height">
-    <div class="container-fluid">
-        <a class="navbar-brand bg-primary pull-right">
-            <span class="glyphicon glyphicon-user"></span></a>
-    </div>
-</nav>

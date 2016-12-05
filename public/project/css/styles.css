@@ -1,8 +1,45 @@
 body {
-    padding-top: 70px;
+    padding-top: 50px;
     padding-bottom: 70px;
+    min-width: 527px;
 }
 
-.navbar-inverse .navbar-brand {
-    color: darkred;
+.navbar-default {
+    background-color: #e74c3c;
+    border-color: #c0392b;
+}
+.navbar-default .navbar-brand {
+    color: #ecf0f1;
+}
+.navbar-default .navbar-nav > li > a {
+    color: #ecf0f1;
+}
+.navbar-default .navbar-brand:hover,
+.navbar-default .navbar-brand:focus {
+    color: #ffbbbc;
+}
+.navbar-default .navbar-nav > li > a:hover,
+.navbar-default .navbar-nav > li > a:focus {
+    color: #ffbbbc;
+}
+
+.div-bg{
+    background-image: url('../images/projbg.jpg') ;
+    min-width:320px;
+    height:300px;
+    background-size: cover;
+    clear:both;
+}
+
+.big-search-box {
+    position: relative;
+    height:300px;
+    width: 50%;
+    top: 50px;
+}
+
+[ng-click],
+[data-ng-click],
+[x-ng-click] {
+    cursor: pointer;
 }

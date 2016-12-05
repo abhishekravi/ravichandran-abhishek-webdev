@@ -3,7 +3,7 @@
  */
 (function () {
     angular
-        .module("MyApp")
+        .module("MyProject")
         .controller("HomeController", HomeController);
 
     /**
@@ -14,7 +14,7 @@
      * serach service
      * @constructor
      */
-    function HomeController($location, SearchService) {
+    function HomeController($location, SearchService, UserService) {
         var vm = this;
         vm.search = search;
 
@@ -25,9 +25,15 @@
          * @returns {*|Object|Number}
          * result object
          */
-        function search(query) {
-            return SearchService.search(query);
+        function search() {
+            SearchService.searchQuery(vm.query)
+                .then(function (result) {
+                    vm.result = result;
+                },function (error) {
+                    vm.result = error;
+                });
         }
+
     }
 
 })();

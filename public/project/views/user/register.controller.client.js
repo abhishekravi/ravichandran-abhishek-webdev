@@ -3,7 +3,7 @@
  */
 (function () {
     angular
-        .module("MyApp")
+        .module("MyProject")
         .controller("RegisterController", RegisterController);
 
     /**
@@ -25,7 +25,7 @@
          */
         function register(user) {
             user = UserService.createUser(user);
-            $location.url("/user/" + user._id);
+            $location.url("/user");
         }
     }
 

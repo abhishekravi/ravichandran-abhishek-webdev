@@ -1,4 +1,7 @@
-<div class="container-fluid" >
+<div class="container-fluid" ng-controller="LoginController as model">
+    <div id="loginAlert" class="alert alert-danger hidden">
+        {{model.alert}}
+    </div>
     <h1>Login</h1>
     <form>
         <div class="form-group">
@@ -17,8 +20,11 @@
             <span class="fa fa-google-plus"></span>
             Google
         </a>
-        <a class="btn btn-success btn-block"
-           href="#/register">Register</a>
-        <span class="label label-danger">{{model.alert}}</span>
+        <a href="/auth/facebook" class="btn btn-primary btn-block">
+            <span class="fa fa-facebook-official"></span>
+            Facebook
+        </a>
+        <a class="btn btn-success btn-block" data-toggle="modal" href="#myRegister" data-dismiss="modal">
+           Register</a>
     </form>
 </div>
